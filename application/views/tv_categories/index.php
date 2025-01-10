@@ -21,6 +21,6 @@
 	<?php
 		echo $categorie_grid;
 		// echo $role_grid;
-		echo $video_categories_grid;
+		echo $video_categorie_grid;
 	?>
 </script>

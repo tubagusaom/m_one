@@ -34,9 +34,7 @@ class Tv_Video_Categorie extends MY_Controller {
 		} else {
 			block_access_method();
 		}
-	}
-
-    
+	}    
 
 	function add() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
