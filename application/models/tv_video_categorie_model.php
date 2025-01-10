@@ -104,4 +104,6 @@ class Tv_Video_Categorie_Model extends MY_Model {
 		parent::__construct();
 	}
 
+}
+
 ?>
