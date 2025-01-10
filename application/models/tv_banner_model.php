@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-Class Banner_tv_model extends MY_Model {
+Class Tv_banner_model extends MY_Model {
 
   public function __construct() {
       $this->_table = "tv_banner";

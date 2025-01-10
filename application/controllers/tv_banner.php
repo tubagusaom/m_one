@@ -70,7 +70,13 @@ class Tv_banner extends MY_Controller {
             if ($data !== false) {
                 if ($this->tv_banner_model->check_unique($data)) {
                     if (isset($_FILES['fileToUpload']['tmp_name']) && !empty($_FILES['fileToUpload']['tmp_name'])) {
-                        $data['image_slide'] = base_url() . "assets_tv/images/slide/" . str_replace(' ', '_', $_FILES['fileToUpload']['name']);
+
+                        $rename_file = rand() . "_" . str_replace(' ', '_', strtolower($_FILES['fileToUpload']['name']));
+                        
+                        $data['image_slide'] = base_url() . "assets_tv/images/slide/" . $rename_file;
+                        $data['image_ori'] = $rename_file;
+
+                        $config['file_name'] = $rename_file;
                         $config['upload_path'] = substr(__dir__, 0, strpos(__dir__, "application")) . 'assets_tv/images/slide/';
                         $config['allowed_types'] = 'bmp|jpg|png|gif|jpeg';
                         $config['max_size'] = '512000000';
@@ -82,8 +88,8 @@ class Tv_banner extends MY_Controller {
                             exit();
                         }
                     } else {
-          						$data['image_slide'] = "";
-          					}
+                        $data['image_slide'] = "";
+                    }
 
                     if ($this->tv_banner_model->insert($data) !== false) {
                         echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data Berhasil Disimpan !'));
@@ -139,20 +145,30 @@ class Tv_banner extends MY_Controller {
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = $this->tv_banner_model->set_validation()->validate();
+
             if ($data !== false) {
                 if ($this->tv_banner_model->check_unique($data, intval($id))) {
                     if (isset($_FILES['fileToUpload']['tmp_name']) && !empty($_FILES['fileToUpload']['tmp_name'])) {
+
                         $tv_banner = $this->tv_banner_model->get(intval($id));
-                        $data['image_slide'] = rand().str_replace(' ', '_', $_FILES['fileToUpload']['name']);
+
+                        $rename_file = rand() . "_" . str_replace(' ', '_', strtolower($_FILES['fileToUpload']['name']));
+                        
+                        $data['image_slide'] = base_url() . "assets_tv/images/slide/" . $rename_file;
+                        $data['image_ori'] = $rename_file;
+                        // $data['image_slide'] = rand().str_replace(' ', '_', $_FILES['fileToUpload']['name']);
+
+                        $config['file_name'] = $rename_file;
+                        // $config['file_name'] = $data['image_slide'];
                         $config['upload_path'] = substr(__dir__, 0, strpos(__dir__, "application")) . 'assets_tv/images/slide/';
                         $config['allowed_types'] = 'bmp|jpg|png|gif|jpeg';
-                        $config['file_name'] = $data['foto_banner'];
                         $config['max_size'] = '51200000';
 
                         $this->load->library('upload', $config);
 
                         if ($this->upload->do_upload('fileToUpload')) {
-                            $current_file = substr(__dir__, 0, strpos(__dir__, "application")) . 'assets_tv/images/slide/' . $tv_banner->foto_banner;
+
+                            $current_file = substr(__dir__, 0, strpos(__dir__, "application")) . 'assets_tv/images/slide/' . $tv_banner->image_ori;
                             if (is_file($current_file)) {
                                 unlink($current_file);
                             }
@@ -185,14 +201,16 @@ class Tv_banner extends MY_Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
             $roles = $this->tv_banner_model->get(intval($id));
-						$hapusgambar = $this->tv_banner_model->get(intval($id));
+			$hapusgambar = $this->tv_banner_model->get(intval($id));
+
             if (sizeof($roles) == 1) {
                 if ($this->tv_banner_model->delete(intval($id))) {
-										$current_file = substr(__dir__, 0, strpos(__dir__, "application")) . 'assets_tv/images/slide/' . $hapusgambar->foto_banner;
-										if (is_file($current_file)) {
-												unlink($current_file);
-										}
+					$current_file = substr(__dir__, 0, strpos(__dir__, "application")) . 'assets_tv/images/slide/' . $hapusgambar->image_ori;
+					if (is_file($current_file)) {
+						unlink($current_file);
+					}
                     echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data berhasil dihapus'));
                 } else {
                     echo json_encode(array('msgType' => 'error', 'msgValue' => 'Data tidak berhasil dihapus !'));
