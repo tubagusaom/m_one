@@ -2,12 +2,7 @@
 	<div class="x-panel-bwrap">
 		<form id="myform">
 			<table class="table-data">
-				<tr>
-					<td style="width: 150px;">Nama Group Menu : </td>
-					<td>
-						<input id="group_name" name="group_name" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $group_name ?>" disabled>
-					</td>
-				</tr>
+				
 				<tr>
 					<td style="width: 150px;">Nama Menu : </td>
 					<td>
