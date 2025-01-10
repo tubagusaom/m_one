@@ -46,10 +46,10 @@ protected $_columns = array(
 );
 
     protected $_order = array("id" => "DESC");
-    // protected $_unique = array('unique' => array('id'), 'group' => false);
+    protected $_unique = array('unique' => array('id'), 'group' => false);
 
     // protected $_order = "id";
-	protected $_unique = array('unique'=>array('description'), 'group'=>false);
+	// protected $_unique = array('unique'=>array('description'), 'group'=>false);
 
     function url2images($url) {
         if(!is_null($url) && !empty($url)) {
