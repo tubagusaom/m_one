@@ -11,7 +11,7 @@ public function __construct() {
 }
 
 protected $_table;
-protected $table_label = 'Data Categories';
+protected $table_label = 'Data Categorie Video TV';
 protected $_columns = array(
     'categories' => array(
         'label' => 'Nama Categorie',
@@ -21,11 +21,12 @@ protected $_columns = array(
         'width' => 50
     ),
     'description' => array(
-        'label' => 'Inisial Nama',
+        'label' => 'Inisial Categorie',
         'rule' => 'trim|xss_clean',
         'formatter' => 'string',
         'save_formatter' => 'string',
-        'hidden' => 'true'
+        'width' => 50
+        // 'hidden' => 'true'
     ),
     'logo_img' => array(
         'label' => 'Logo',
