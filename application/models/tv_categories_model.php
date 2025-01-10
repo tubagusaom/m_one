@@ -11,22 +11,22 @@ public function __construct() {
 }
 
 protected $_table;
-protected $table_label = 'Data Categorie Video TV';
+protected $table_label = 'Data Program TV';
 protected $_columns = array(
     'categories' => array(
-        'label' => 'Nama Categorie',
+        'label' => 'Nama',
         'rule' => 'trim|xss_clean',
         'formatter' => 'string',
         'save_formatter' => 'string',
-        'width' => 50
+        'width' => 30
     ),
     'description' => array(
         'label' => 'Inisial Categorie',
         'rule' => 'trim|xss_clean',
         'formatter' => 'string',
         'save_formatter' => 'string',
-        'width' => 50
-        // 'hidden' => 'true'
+        'width' => 50,
+        'hidden' => 'true'
     ),
     'logo_img' => array(
         'label' => 'Logo',
@@ -46,7 +46,10 @@ protected $_columns = array(
 );
 
     protected $_order = array("id" => "DESC");
-    protected $_unique = array('unique' => array('id'), 'group' => false);
+    // protected $_unique = array('unique' => array('id'), 'group' => false);
+
+    // protected $_order = "id";
+	protected $_unique = array('unique'=>array('description'), 'group'=>false);
 
     function url2images($url) {
         if(!is_null($url) && !empty($url)) {

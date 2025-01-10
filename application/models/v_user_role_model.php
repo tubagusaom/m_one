@@ -1,9 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-Class V_User_Role_Model extends MY_Model
-{
+Class V_User_Role_Model extends MY_Model {
 	protected $_table = 'v_userrole';
-
 	protected $table_label = 'Data User Role';
 
 	protected $_columns = array(

@@ -1,7 +1,4 @@
-<?php 
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 Class Tv_video_model extends MY_Model {
 
@@ -13,13 +10,21 @@ public function __construct() {
 protected $_table;
 protected $table_label = 'Data Video';
 protected $_columns = array(
-    'code_video' => array(
-        'label' => 'Code',
-        'rule' => 'trim|xss_clean',
-        'formatter' => 'string',
-        'save_formatter' => 'string',
-        'width' => 15,
-        'align' =>'center',
+    // 'code_video' => array(
+    //     'label' => 'Code',
+    //     'rule' => 'trim|xss_clean',
+    //     'formatter' => 'string',
+    //     'save_formatter' => 'string',
+    //     'width' => 15,
+    //     'align' =>'center',
+    //     'hidden' => 'true'
+    // ),
+    'code_video'	=>	array(
+        'label'	=>	'Code',
+        'rule'	=>	'trim|xss_clean',
+        'formatter'	=>	"int",
+        'save_formatter' => 'int',
+        'width' => 75,
         'hidden' => 'true'
     ),
     'id_categorie' => array(

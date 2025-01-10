@@ -15,7 +15,7 @@ class Roles extends MY_Controller {
 		$this->load->library('grid');
 
 		$role_grid = $this->grid->set_properties(array('model'=>'Role_Model', 'controller'=>'roles', 'options'=>array('id'=>'roles', 'pagination', 'rownumber', 'target'=>array('id'=>'user_roles', 'controller'=>'userroles'))))->load_model()->set_grid();
-		$user_grid = $this->grid->set_properties(array('model'=>'V_User_Role_Model', 'controller'=>'userroles', 'fields'=>array('akun', 'nama_user'), 'options'=>array('child', 'id'=>'user_roles', 'pagination', 'rownumber')))->load_model()->set_grid();
+		$user_grid = $this->grid->set_properties(array('model'=>'User_Role_Model', 'controller'=>'userroles', 'fields'=>array('akun', 'nama_user'), 'options'=>array('child', 'id'=>'user_roles', 'pagination', 'rownumber')))->load_model()->set_grid();
 
 		$view = $this->load->view('roles/index', array('role_grid'=>$role_grid, 'user_grid'=>$user_grid), true);
 

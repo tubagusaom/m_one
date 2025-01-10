@@ -8,35 +8,68 @@ class Tv_categories extends MY_Controller {
 		$this->load->model('tv_categories_model');
 	}
 
-	function index() {
-			if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-					$this->load->library('grid');
-					$grid = $this->grid->set_properties(array('model' => 'tv_categories_model', 'controller' => 'tv_categories', 'options' => array('id' => 'tv_categories', 'pagination', 'rownumber')))->load_model()->set_grid();
-					$view = $this->load->view('tv_categories/index', array('grid' => $grid), true);
-					echo json_encode(array('msgType' => 'success', 'msgValue' => $view));
-			} else {
-					block_access_method();
-			}
+	// function index() {
+	// 		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+	// 				$this->load->library('grid');
+	// 				$grid = $this->grid->set_properties(array('model' => 'tv_categories_model', 'controller' => 'tv_categories', 'options' => array('id' => 'tv_categories', 'pagination', 'rownumber')))->load_model()->set_grid();
+	// 				$view = $this->load->view('tv_categories/index', array('grid' => $grid), true);
+	// 				echo json_encode(array('msgType' => 'success', 'msgValue' => $view));
+	// 		} else {
+	// 				block_access_method();
+	// 		}
+	// }
+
+	// function datagrid() {
+	// 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	// 			$row = intval($this->input->post('rows')) == 0 ? 20 : intval($this->input->post('rows'));
+	// 			$page = intval($this->input->post('page')) == 0 ? 1 : intval($this->input->post('page'));
+	// 			$offset = $row * ($page - 1);
+	// 			$data = array();
+	// 			$params = array('_return' => 'data');
+	// 			if (isset($where))
+	// 					$params['_where'] = $where;
+	// 			$data['total'] = isset($where) ? $this->tv_categories_model->count_by($where) : $this->tv_categories_model->count_all();
+	// 			$this->tv_categories_model->limit($row, $offset);
+	// 			$order = $this->tv_categories_model->get_params('_order');
+	// 			$rows = isset($where) ? $this->tv_categories_model->order_by($order)->get_many_by($where) : $this->tv_categories_model->order_by($order)->get_all();
+	// 			$data['rows'] = $this->tv_categories_model->get_selected()->data_formatter($rows);
+	// 			echo json_encode($data);
+	// 	}
+	// 	else {
+	// 			block_access_method();
+	// 	}
+	// }
+
+    function index() {
+		$this->load->library('grid');
+		$categorie_grid = $this->grid->set_properties(array('model'=>'tv_categories_model', 'controller'=>'tv_categories', 'options'=>array('id'=>'tv_categories', 'pagination', 'rownumber', 'target'=>array('id'=>'videos', 'controller'=>'Tv_Video_Categorie'))))->load_model()->set_grid();
+		$video_categories_grid = $this->grid->set_properties(array('model'=>'Tv_Video_Categorie_Model', 'controller'=>'Tv_Video_Categorie', 'fields'=>array('nama_video', 'desc_video'), 'options'=>array('child', 'id'=>'videos', 'pagination', 'rownumber')))->load_model()->set_grid();
+		
+		$view = $this->load->view('tv_categories/index', array('categorie_grid'=>$categorie_grid, 'video_categories_grid'=>$video_categories_grid), true);
+		
+		echo json_encode(array('msgType'=>'success', 'msgValue'=>$view));
+		
 	}
 
 	function datagrid() {
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-				$row = intval($this->input->post('rows')) == 0 ? 20 : intval($this->input->post('rows'));
-				$page = intval($this->input->post('page')) == 0 ? 1 : intval($this->input->post('page'));
-				$offset = $row * ($page - 1);
-				$data = array();
-				$params = array('_return' => 'data');
-				if (isset($where))
-						$params['_where'] = $where;
-				$data['total'] = isset($where) ? $this->tv_categories_model->count_by($where) : $this->tv_categories_model->count_all();
-				$this->tv_categories_model->limit($row, $offset);
-				$order = $this->tv_categories_model->get_params('_order');
-				$rows = isset($where) ? $this->tv_categories_model->order_by($order)->get_many_by($where) : $this->tv_categories_model->order_by($order)->get_all();
-				$data['rows'] = $this->tv_categories_model->get_selected()->data_formatter($rows);
-				echo json_encode($data);
+		if($_SERVER['REQUEST_METHOD'] == 'POST')
+		{
+			$row = intval($this->input->post('rows')) == 0 ? 20 : intval($this->input->post('rows')) ;
+			$page = intval($this->input->post('page'))== 0 ? 1 : intval($this->input->post('page'));
+			$offset = $row * ($page - 1);
+			$data = array();
+			// $where['id >'] = 2;
+			$params = array('_return'=>'data');
+			if(isset($where)) $params['_where'] = $where;
+			$data['total'] = isset($where) ? $this->tv_categories_model->count_by($where) : $this->tv_categories_model->count_all();
+			$this->tv_categories_model->limit($row, $offset);
+			$order = $this->tv_categories_model->get_params('_order');
+			$rows = isset($where) ? $this->tv_categories_model->order_by($order)->get_many_by($where) : $this->tv_categories_model->order_by($order)->get_all();
+			$data['rows'] = $this->tv_categories_model->get_selected()->data_formatter($rows);
+			echo json_encode($data);
 		}
 		else {
-				block_access_method();
+			block_access_method();
 		}
 	}
 
