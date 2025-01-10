@@ -39,17 +39,17 @@ class Tv_Video_Categorie extends MY_Controller {
 	function add() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $data = $this->tv_video_model->set_validation()->validate();
+            $data = $this->Tv_Video_Categorie_Model->set_validation()->validate();
             if ($data !== false) {
-                if ($this->tv_video_model->check_unique($data)) {
+                if ($this->Tv_Video_Categorie_Model->check_unique($data)) {
 
-                    if ($this->tv_video_model->insert($data) !== false) {
+                    if ($this->Tv_Video_Categorie_Model->insert($data) !== false) {
                         echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data berhasil disimpan !'));
                     } else {
                         echo json_encode(array('msgType' => 'error', 'msgValue' => 'Data tidak dapat disimpan !'));
                     }
                 } else {
-                    echo json_encode(array('msgType' => 'error', 'msgValue' => implode("<br/>", $this->tv_video_model->get_validation())));
+                    echo json_encode(array('msgType' => 'error', 'msgValue' => implode("<br/>", $this->Tv_Video_Categorie_Model->get_validation())));
                 }
             } else {
                 echo json_encode(array('msgType' => 'error', 'msgValue' => validation_errors()));
@@ -60,12 +60,12 @@ class Tv_Video_Categorie extends MY_Controller {
             $categories = $this->tv_categories_model->dropdown('id', 'categories');
             // $data_code = $this->tv_categories_model->dropdown('id', 'categories');
 
-            // $con_method = $this->tv_video_model->data_desc(intval('10'));
-            $data_code = $this->tv_video_model->data_desc();
+            // $con_method = $this->Tv_Video_Categorie_Model->data_desc(intval('10'));
+            $data_code = $this->Tv_Video_Categorie_Model->data_desc();
 
             // var_dump($data_code); die();
             
-            $view = $this->load->view('tv_video/add', array('categories' => $categories,'url' => base_url() . 'tv_video/add','data_code' => $data_code->code_video), TRUE);
+            $view = $this->load->view('tv_video_categorie/add', array('categories' => $categories,'url' => base_url() . 'tv_video_categorie/add','data_code' => $data_code->code_video), TRUE);
 			echo json_encode(array('msgType' => 'success', 'msgValue' => $view));
         }
     }
@@ -76,32 +76,32 @@ class Tv_Video_Categorie extends MY_Controller {
             exit;
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = $this->tv_video_model->set_validation()->validate();
+            $data = $this->Tv_Video_Categorie_Model->set_validation()->validate();
             if ($data !== false) {
-                if ($this->tv_video_model->check_unique($data, intval($id))) {
-                    if ($this->tv_video_model->update(intval($id), $data) !== false) {
+                if ($this->Tv_Video_Categorie_Model->check_unique($data, intval($id))) {
+                    if ($this->Tv_Video_Categorie_Model->update(intval($id), $data) !== false) {
                         echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data berhasil diubah !'));
                     } else {
                         echo json_encode(array('msgType' => 'error', 'msgValue' => 'Data tidak dapat diubah !'));
                     }
                 } else {
-                    echo json_encode(array('msgType' => 'error', 'msgValue' => implode("<br/>", $this->tv_video_model->get_validation())));
+                    echo json_encode(array('msgType' => 'error', 'msgValue' => implode("<br/>", $this->Tv_Video_Categorie_Model->get_validation())));
                 }
             } else {
                 echo json_encode(array('msgType' => 'error', 'msgValue' => validation_errors()));
             }
         } else {
-            $con_method = $this->tv_video_model->get(intval($id));
+            $con_method = $this->Tv_Video_Categorie_Model->get(intval($id));
             if (sizeof($con_method) == 1) {
                 $this->load->model('tv_categories_model');
                 $this->db->order_by('categories', 'ASC');
                 $categories = $this->tv_categories_model->dropdown('id', 'categories');
 
-                $data = $this->tv_video_model->get_single($con_method);
+                $data = $this->Tv_Video_Categorie_Model->get_single($con_method);
                 // $view = $this->load->view('tv_video/edit', array('categories' => $categories,'data' => $data,'url' => base_url() . 'tv_video/edit_upload/' . $id), TRUE);
                 // echo json_encode(array('msgType' => 'success', 'msgValue' => $view));
 
-                $view = $this->load->view('tv_video/edit', array('categories' => $categories,'data' => $data), TRUE);
+                $view = $this->load->view('tv_video_categorie/edit', array('categories' => $categories,'data' => $data), TRUE);
                 echo json_encode(array('msgType' => 'success', 'msgValue' => $view));
             } else {
                 echo json_encode(array('msgType' => 'error', 'msgValue' => 'Data tidak dapat ditemukan !'));
@@ -115,9 +115,9 @@ class Tv_Video_Categorie extends MY_Controller {
             exit;
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $roles = $this->tv_video_model->get(intval($id));
+            $roles = $this->Tv_Video_Categorie_Model->get(intval($id));
             if (sizeof($roles) == 1) {
-                if ($this->tv_video_model->delete(intval($id))) {
+                if ($this->Tv_Video_Categorie_Model->delete(intval($id))) {
                     echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data berhasil dihapus'));
                 } else {
                     echo json_encode(array('msgType' => 'error', 'msgValue' => 'Data tidak berhasil dihapus !'));
