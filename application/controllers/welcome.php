@@ -157,6 +157,8 @@
 
           $data['banner'] = $this->welcome_model->banner();
           $data['live_tv'] = $this->welcome_model->live_tv();
+
+          $data['categorie_tv'] = $this->welcome_model->categorie_tv();
           $data['video_tv'] = $this->welcome_model->video_tv();
 
           $data['video_energy'] = $this->welcome_model->video_energy();
@@ -169,7 +171,7 @@
           //   $url_host[$keys] = substr(strrchr($external_url, "."), 1);
           // }
 
-          // var_dump(count($data['video_energy'])); die();
+          // var_dump(($data['categorie_tv'])); die();
 
           $this->load->view('templates/bootstraps/header', $data);
           $this->load->view('templates/bootstraps/body', $data);

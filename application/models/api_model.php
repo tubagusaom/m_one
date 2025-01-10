@@ -418,7 +418,7 @@ class Api_model extends MY_Model {
             ');
 
             $this->db->from('tv_categories a');
-
+            // $this->db->where('a.id >', '0');
             $this->db->order_by('a.id', 'ASC');
     
             $data_sql = $this->db->get();

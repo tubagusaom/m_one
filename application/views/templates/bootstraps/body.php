@@ -38,10 +38,6 @@
           <!-- <h6 class="text-gray-600">TV streaming from multiple channels</h6>
           <h2>TV STREAMING</h2> -->
 
-          <style>
-            
-          </style>
-
           <div class="tab-column pb-tab">
               <div class="row">
                 <div class="column_tb_3">

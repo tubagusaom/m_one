@@ -411,7 +411,6 @@ class Api extends MY_Controller {
 
 	function program(){
 		$this->restapi->content_type_json();
-		
 		$rest = $this->input->post('M1TV-CLIENT-KEY',true);
 
 		if ($rest == TRUE) {
