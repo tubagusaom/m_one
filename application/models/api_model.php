@@ -547,7 +547,7 @@ class Api_model extends MY_Model {
 
             $this->db->from('tv_video a');
             $this->db->join('tv_categories b', 'a.id_categorie=b.id');
-            $this->db->where("a.id_categorie",'1');
+            $this->db->where("a.id_categorie",'2');
 
             $this->db->order_by('a.code_video', 'ASC');
     
