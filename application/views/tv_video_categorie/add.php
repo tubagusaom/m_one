@@ -12,9 +12,6 @@
 					<td style="width: 150px;">Program TV : </td>
 					<td>
 						<input style="width: 225px;" class="easyui-textbox" data-options="required: true" value="<?=$categorie->categories?>" disabled>
-						<input type="hidden" id="id_categorie" name="id_categorie" value="<?=$categorie->id?>">
-
-						<input type="hidden" id="code_video" name="code_video" value="<?=$data_code + 1?>" >
 					</td>
 				</tr>
 
@@ -33,22 +30,9 @@
 				<tr>
 					<td style="width: 150px;">Link Video : </td>
 					<td>
-						<input id="link_video" name="link_video" style="width: 225px;" class="easyui-textbox" data-options="required: true">
+						<input id="uri_video" name="uri_video" style="width: 225px;" class="easyui-textbox" data-options="required: true">
 					</td>
 				</tr>
-				<!-- <tr>
-					<td style="width: 150px;">Link Embed : </td>
-					<td>
-						<input id="link_embed" name="link_embed" style="width: 225px;" class="easyui-textbox" data-options="required: true">
-					</td>
-				</tr>
-				<tr>
-					<td style="width: 150px;">Poster Video : </td>
-					<td>
-						<input id="poster_video" name="poster_video" style="width: 225px;" class="easyui-textbox" data-options="required: true">
-					</td>
-				</tr> -->
-
 			</table>
 		</form>
 	</div>

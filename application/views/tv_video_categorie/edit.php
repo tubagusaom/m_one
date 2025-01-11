@@ -3,27 +3,27 @@
 		<form id="myform">
 			<table class="table-data">
 				<tr>
-					<td style="width: 150px;">Nama Group Menu : </td>
+					<td style="width: 150px;">Program TV : </td>
 					<td>
-						<input id="group_name" name="group_name" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $group_name ?>" disabled>
+						<input id="group_name" name="group_name" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $categorie ?>" disabled>
 					</td>
 				</tr>
 				<tr>
-					<td style="width: 150px;">Nama Menu : </td>
+					<td style="width: 150px;">Title : </td>
 					<td>
-						<input id="menu_name" name="menu_name" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->menu_name ?>">
+						<input id="nama_video" name="nama_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->menu_name ?>">
 					</td>
 				</tr>
 				<tr>
-					<td style="width: 150px;">Nama Icon : </td>
+					<td style="width: 150px;">Description : </td>
 					<td>
-						<input id="icon_name" name="icon_name" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->icon_name ?>">
+						<input id="desc_video" name="desc_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->icon_name ?>">
 					</td>
 				</tr>
 				<tr>
-					<td style="width: 150px;">No. Urut : </td>
+					<td style="width: 150px;">Link Video : </td>
 					<td>
-						<input id="no_urut" name="no_urut" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->no_urut ?>">
+						<input id="link_video" name="link_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->no_urut ?>">
 					</td>
 				</tr>
 			</table>

@@ -327,7 +327,7 @@ class MY_Controller extends CI_Controller {
         }
     }
 
-    function segment_query_parse($str = "") {
+    function segment_qlink_parse($str = "") {
         $urlArray = parse_url($str);
         $segment_query = str_replace("v=","v_key=",$urlArray['query']);
         parse_str($segment_query);
@@ -337,9 +337,21 @@ class MY_Controller extends CI_Controller {
         }else {
             return FALSE;
         }
+    }
 
-        
-        // echo json_encode($str);
+    function uri_youtube($code = "",$jenis="") {
+
+        if($jenis === 'watch'){
+            $url_youtube = 'https://www.youtube.com/watch?v=' . $code;
+        }elseif($jenis === 'embed'){
+            $url_youtube = 'https://www.youtube.com/embed/' . $code;
+        }elseif($jenis === 'poster'){
+            $url_youtube = 'https://img.youtube.com/vi/' . $code . '/hqdefault.jpg';
+        }else{
+            $url_youtube = "";
+        }
+
+        return $url_youtube;
     }
 
     function test_mycontroller($str = "") {
