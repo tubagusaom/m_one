@@ -36,6 +36,8 @@
     <script src="<?php echo base_url() ?>assets_tv/js/video.min.js"></script>
     <!-- <script src="<?php echo base_url() ?>assets_tv/js/terabytee.min.js"></script> -->
 
+    <script src="<?php echo base_url() ?>assets/js/limonte-sweetalert2/sweetalert2.all.min.js"></script>
+
   </body>
 
   <script>
@@ -51,8 +53,32 @@ $(document).on('click', '[data-action=copy]', function (){
     /* Copy the text inside the text field */
     document.execCommand("copy");
     
-    alert("link copied to clipboard");
+    // alert("link copied to clipboard");
     // alert(myoutput);
+
+    Swal.fire({
+      type: 'success',
+      title: "Success",
+      text: 'link copied to clipboard',
+      timer: 2500,
+      showCancelButton: false,
+      showConfirmButton: false,
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `
+      }
+    });
+
 });
 
 // $('.copy_text').each(function() {
@@ -309,14 +335,12 @@ $(document).on('click', '[data-action=copy]', function (){
       player3.pause();
       player4.pause();
 
-      var keys = $(this).data('key');
+      // var keys = $(this).data('key');
       var keys = $(this).data('key');
       var names = $(this).data('name');
       var urls = $(this).data('url');
       var embeds = $(this).data('embed');
       var posters = $(this).data('poster');
-      
-      // alert(embeds);
 
       $('#frame-' + keys).attr("src",embeds + "?autoplay=1&mute=0");
 
@@ -336,7 +360,7 @@ $(document).on('click', '[data-action=copy]', function (){
 
           // alert(myAnchor);
           
-        });
+      });
 
       $('.tv-video').each(function() {
         var codes = $(this).data('codev');
@@ -345,7 +369,9 @@ $(document).on('click', '[data-action=copy]', function (){
 
         const arrays = [keys];
         if (!(arrays.includes(codes))) {
-          // alert("#frame-"+codes);
+
+          // alert(idx1arr);
+
           $("#frame-"+codes).attr("src","");
 
           $('#tabs-2-' + codes).removeClass("active");

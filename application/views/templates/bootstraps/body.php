@@ -211,9 +211,13 @@
 
                   <div class="column_tb_2" role="presentation">
                     <div class="tv-video" style="float:<?=$float?>!important;" data-codev="<?=$value_videos->code_video?>">
-                      <a id="x-<?=$value_videos->code_video?>" class="click-video" href="javascript:void(0)" data-toggle="tab" data-key="<?=$value_videos->code_video?>" data-name="<?=$value_videos->nama_video?>" data-url="<?=$value_videos->link_video?>" data-embed="<?=$value_videos->link_embed?>" data-poster="<?=$value_videos->poster_video?>" data-logo="<?=$value_videos->logo_video?>">
+                      <a id="xsatu-<?=$value_videos->code_video?>" class="click-video" href="javascript:void(0)" data-toggle="tab" data-key="<?=$value_videos->code_video?>" data-name="<?=$value_videos->nama_video?>" data-url="<?=$value_videos->link_video?>" data-embed="<?=$value_videos->link_embed?>" data-poster="<?=$value_videos->poster_video?>" data-logo="<?=$value_videos->logo_video?>">
                         <img class="img_poster" src="<?=$value_videos->poster_video?>" alt="<?=$value_videos->nama_video?>" title="<?=$value_videos->nama_video?>"/>
                       </a>
+
+                      <!-- <div id="x1-<?=$value_videos->code_video?>" class="click-video" data-key="<?=$value_videos->code_video?>" data-name="<?=$value_videos->nama_video?>" data-url="<?=$value_videos->link_video?>" data-embed="<?=$value_videos->link_embed?>" data-poster="<?=$value_videos->poster_video?>" data-logo="<?=$value_videos->logo_video?>">
+                        <img class="img_poster" src="<?=$value_videos->poster_video?>" alt="<?=$value_videos->nama_video?>" title="<?=$value_videos->nama_video?>"/>
+                      </div> -->
 
                       <div class="bottom-desc <?=$class_l?>" style="" title="<?=$value_videos->nama_video?>">
                         <?php
@@ -291,6 +295,7 @@
 
                     <div class="column_tb_2" role="presentation">
                       <div class="tv-video" style="float:<?=$float1?>!important;" data-codev="<?=$value_1->code_video?>">
+
                         <a id="x-<?=$value_1->code_video?>" class="click-video" href="javascript:void(0)" data-toggle="tab" data-key="<?=$value_1->code_video?>" data-name="<?=$value_1->nama_video?>" data-url="<?=$value_1->link_video?>" data-embed="<?=$value_1->link_embed?>" data-poster="<?=$value_1->poster_video?>" data-logo="<?=$value_1->logo_video?>">
                           <img class="img_poster" src="<?=$value_1->poster_video?>" alt="<?=$value_1->nama_video?>" title="<?=$value_1->nama_video?>"/>
                         </a>
