@@ -5,25 +5,31 @@
 				<tr>
 					<td style="width: 150px;">Program TV : </td>
 					<td>
-						<input id="group_name" name="group_name" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $categorie ?>" disabled>
+						<?= form_dropdown('id_categorie', $categorie, $data->id_categorie, 'id="id_categorie" class="easyui-combobox" style="width: 200px;" data-options="required: true"'); ?>
+
+						<input type="hidden" id="code_video" name="code_video" value="<?=$data->code_video?>">
+						<input type="hidden" id="frame_border" name="frame_border" value="<?=$data->frame_border?>">
+                        <input type="hidden" id="allow_arr" name="allow_arr" value="<?=$data->allow_arr?>">
+                        <input type="hidden" id="allow_full_screen" name="allow_full_screen" value="<?=$data->allow_full_screen?>">
 					</td>
 				</tr>
 				<tr>
 					<td style="width: 150px;">Title : </td>
 					<td>
-						<input id="nama_video" name="nama_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->menu_name ?>">
+						<input id="nama_video" name="nama_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->nama_video ?>">
 					</td>
 				</tr>
 				<tr>
 					<td style="width: 150px;">Description : </td>
 					<td>
-						<input id="desc_video" name="desc_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->icon_name ?>">
+						<!-- <input id="desc_video" name="desc_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->desc_video ?>"> -->
+						<input id="desc_video" name="desc_video" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'Description:',multiline:true,required: true" value="<?=$data->desc_video?>">
 					</td>
 				</tr>
 				<tr>
 					<td style="width: 150px;">Link Video : </td>
 					<td>
-						<input id="link_video" name="link_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->no_urut ?>">
+						<input id="uri_video" name="uri_video" style="width: 200px;" class="easyui-textbox" data-options="required: true" value="<?php echo $data->link_video ?>">
 					</td>
 				</tr>
 			</table>

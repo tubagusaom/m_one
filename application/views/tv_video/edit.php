@@ -31,7 +31,7 @@
                     <td style="width: 150px;">Description : </td>
                     <td>
                         <!-- <input id="desc_video" name="desc_video" style="width: 250px;" class="easyui-textbox" data-options="required: true" value="<?=$data->desc_video?>"> -->
-                        <input id="desc_video" name="desc_video" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'Message:',multiline:true,required: true" value="<?=$data->desc_video?>">
+                        <input id="desc_video" name="desc_video" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'Description:',multiline:true,required: true" value="<?=$data->desc_video?>">
                     </td>
                 </tr>
 

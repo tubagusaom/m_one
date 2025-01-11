@@ -99,7 +99,7 @@ class Tv_video extends MY_Controller {
             $con_method = $this->tv_video_model->get(intval($id));
             if (sizeof($con_method) == 1) {
                 $this->load->model('tv_categories_model');
-                $this->db->order_by('categories', 'ASC');
+                // $this->db->order_by('categories', 'ASC');
                 $categories = $this->tv_categories_model->dropdown('id', 'categories');
 
                 $data = $this->tv_video_model->get_single($con_method);

@@ -102,41 +102,58 @@ class Tv_Video_Categorie extends MY_Controller {
 			data_not_found();
 			exit;
 		} else {
-			$this->load->model('Tv_categories_model');
+			$this->load->model('Tv_Video_Categorie_Model');
 			
-			$video_categorie = $this->Tv_Video_Categorie_Model->get(intval($id));				
+			$video_categorie = $this->Tv_Video_Categorie_Model->get(intval($id));
+            
+            // var_dump($video_categorie); die();
+            
 			if(sizeof($video_categorie) == 1) {
 			
 				$video = $this->Tv_Video_Categorie_Model->get_single($video_categorie);
 				
 				if($_SERVER['REQUEST_METHOD'] == 'POST') {
-					$_POST['id_categorie'] = $video->id_categorie;
-					
-					$data = $this->Tv_Video_Categorie_Model->set_validation()->validate();
-					if($data !== false) {
-						if($this->Tv_Video_Categorie_Model->check_unique($data, intval($id))) {
-							if($this->Tv_Video_Categorie_Model->update(intval($id), $data) !== false) {
-								echo json_encode(array('msgType'=>'success', 'msgValue'=>'Data berhasil disimpan !'));
-							} else {
-								echo json_encode(array('msgType'=>'error', 'msgValue'=>'Data tidak dapat disimpan !'));
-							}
-						} else {
-							echo json_encode(array('msgType'=>'error', 'msgValue'=>implode("<br/>", $this->Tv_Video_Categorie_Model->get_validation())));
-						}
-					} else {
-						echo json_encode(array('msgType'=>'error', 'msgValue'=>validation_errors()));
-					}
+					// $_POST['id_categorie'] = $video->id_categorie;
+
+                    $uri_video = $this->input->post('uri_video');
+                    $value_uri = $this->segment_qlink_parse($uri_video);
+
+                    // var_dump($value_uri); die();
+
+					if($value_uri !== false){
+
+                        $_POST['link_video'] = $this->uri_youtube($value_uri,'watch');
+                        $_POST['link_embed'] = $this->uri_youtube($value_uri,'embed');
+                        $_POST['poster_video'] = $this->uri_youtube($value_uri,'poster');
+                        
+                        $data = $this->Tv_Video_Categorie_Model->set_validation()->validate();
+                        if($data !== false) {
+                            if($this->Tv_Video_Categorie_Model->check_unique($data, intval($id))) {
+                                if($this->Tv_Video_Categorie_Model->update(intval($id), $data) !== false) {
+                                    echo json_encode(array('msgType'=>'success', 'msgValue'=>'Data berhasil disimpan !'));
+                                } else {
+                                    echo json_encode(array('msgType'=>'error', 'msgValue'=>'Data tidak dapat disimpan !'));
+                                }
+                            } else {
+                                echo json_encode(array('msgType'=>'error', 'msgValue'=>implode("<br/>", $this->Tv_Video_Categorie_Model->get_validation())));
+                            }
+                        } else {
+                            echo json_encode(array('msgType'=>'error', 'msgValue'=>validation_errors()));
+                        }
+                    }else {
+                        echo json_encode(array('msgType'=>'error', 'msgValue'=>'Link video tidak valid !'));
+                    }
+
 				} else {
 					
 					// $categorie = $this->Tv_categories_model->get_single($this->Tv_categories_model->get(intval($video->id_categorie)));
 
-                    // $this->load->model('tv_categories_model');
-                    // $this->db->order_by('categories', 'ASC');
-                    $categories = $this->Tv_categories_model->dropdown('id', 'categories');
+                    $this->load->model('Tv_categories_model');
+                    $categorie = $this->Tv_categories_model->dropdown('id', 'categories');
 
-                    var_dump($categories); die();
+                    // var_dump($categorie); die();
 
-					$view = $this->load->view('tv_video_categorie/edit', array('data'=>$video, 'categorie'=>$categorie->categories), TRUE);
+					$view = $this->load->view('tv_video_categorie/edit', array('data'=>$video_categorie, 'categorie'=>$categorie), TRUE);
 					echo json_encode(array('msgType'=>'success', 'msgValue'=>$view));
 					
 				}
