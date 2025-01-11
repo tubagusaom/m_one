@@ -43,7 +43,7 @@ class Tv_categories extends MY_Controller {
     function index() {
 		$this->load->library('grid');
 		$categorie_grid = $this->grid->set_properties(array('model'=>'tv_categories_model', 'controller'=>'tv_categories', 'options'=>array('id'=>'tv_categories', 'pagination', 'rownumber', 'target'=>array('id'=>'tv_video_categorie', 'controller'=>'tv_video_categorie'))))->load_model()->set_grid();
-		$video_categorie_grid = $this->grid->set_properties(array('model'=>'tv_video_categorie_model', 'controller'=>'tv_video_categorie', 'fields'=>array('nama_video', 'desc_video'), 'options'=>array('child', 'id'=>'tv_video_categorie', 'pagination', 'rownumber')))->load_model()->set_grid();
+		$video_categorie_grid = $this->grid->set_properties(array('model'=>'tv_video_categorie_model', 'controller'=>'tv_video_categorie', 'fields'=>array('nama_video', 'desc_video', 'poster_video'), 'options'=>array('child', 'id'=>'tv_video_categorie', 'pagination', 'rownumber')))->load_model()->set_grid();
 		
 		$view = $this->load->view('tv_categories/index', array('categorie_grid'=>$categorie_grid, 'video_categorie_grid'=>$video_categorie_grid), true);
 		

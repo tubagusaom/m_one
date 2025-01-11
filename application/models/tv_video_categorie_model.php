@@ -3,7 +3,7 @@
 class Tv_Video_Categorie_Model extends MY_Model {
 
 	protected $_table = 'tv_video';
-	protected $table_label = 'Data Videos';
+	protected $table_label = 'Data Video Program';
 	protected $_columns = array(
 		'nama_video' => array(
 			'label' => 'Title',
@@ -36,12 +36,20 @@ class Tv_Video_Categorie_Model extends MY_Model {
 			'save_formatter' => 'string',
 			'hidden' => 'true'
 		),
+		// 'poster_video' => array(
+		// 	'label' => 'poster_video',
+		// 	'rule' => 'trim|xss_clean',
+		// 	'formatter' => 'string',
+		// 	'save_formatter' => 'string',
+		// 	'hidden' => 'true'
+		// ),
 		'poster_video' => array(
-			'label' => 'poster_video',
+			'label' => 'Thumbnail',
 			'rule' => 'trim|xss_clean',
-			'formatter' => 'string',
+			'formatter' => 'url2images',
 			'save_formatter' => 'string',
-			'hidden' => 'true'
+			'width' => 30,
+			'align' =>'center',
 		),
 		'frame_border' => array(
 			'label' => 'frame_border',
@@ -86,10 +94,18 @@ class Tv_Video_Categorie_Model extends MY_Model {
 	protected $_order = array("id" => "DESC");
     protected $_unique = array('unique' => array('id'), 'group' => false);
 
-	public function __construct()
-	{
-		parent::__construct();
-	}
+    function url2images($url) {
+        if(!is_null($url) && !empty($url)) {
+          return "<img width=100% height=100% src='$url' class='img-thumbnail' />";
+        }else {
+            return "";
+        }
+    }
+
+	// public function __construct()
+	// {
+	// 	parent::__construct();
+	// }
 
 }
 
