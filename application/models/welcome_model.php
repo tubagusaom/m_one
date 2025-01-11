@@ -370,4 +370,17 @@ class Welcome_model extends MY_Model
     
   }
 
+  function video_vod() {
+    $this->db->from('tv_video');
+    $this->db->order_by('id', 'DESC');
+    
+    // $this->db->limit(10);
+    $this->db->where('id_categorie', '1');
+
+    $query = $this->db->get()->result();
+    shuffle ($query);
+    return $query;
+    
+  }
+
 }

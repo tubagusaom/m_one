@@ -91,69 +91,9 @@
 
         if (!$this->auth->is_logged_in()) {
 
-          // var_dump(kode_tbl()); die();
-
           $visitor = $this->initCounter();
-          // $data['coba'] = array();
-
-          // batas
 
           $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
-          // $data['inisial'] = "One Step Solution for Your Home";
-
-          // $data['class_active'] = 'home';
-
-          // $data['pengunjung'] = $this->welcome_model->dataPengunjung();
-          // $data['total'] = $this->welcome_model->totalPengunjung();
-          // $data['rst'] = array();
-
-          // $data['slide_count'] = $this->welcome_model->slide_total();
-          // $data['slideshow'] = $this->welcome_model->slide_show();
-          // $data['showiklan'] = $this->welcome_model->show_iklan();
-
-          // $data['show_product_link'] = $this->welcome_model->show_product_link();
-          // $show_product_link = $data['show_product_link'];
-
-          // $data['show_product_terbaru'] = $this->welcome_model->show_product_terbaru();
-          // $show_product_terbaru = $data['show_product_terbaru'];
-
-          // foreach ($show_product_terbaru as $keyspt => $spt) {
-          //   $data['file_product_terbaru'] = $this->welcome_model->file_product_terbaru($spt->id);
-          //   // var_dump($show_product_terbaru); die();
-          // }
-
-          // // var_dump($show_product_link); die();
-
-          // $seller_array = array(
-          //   '119'=>'haston',
-      		// 	'111'=>'mitra10',
-      		// 	'112'=>'amarodinamikatangguh',
-      		// 	'113'=>'cisangkan',
-      		// 	'114'=>'histell',
-      		// 	'115'=>'rosykramindo',
-      		// 	'116'=>'lixiltrading',
-      		// 	'117'=>'sullyabadijaya',
-      		// 	'0'=>'csa',
-      		// 	'118'=>'kulitbatu',
-      		// 	'120'=>'suryarezekitimberutama',
-      		// 	'121'=>'lantaibatu',
-      		// 	'0'=>'tukangbagus',
-      		// 	'0'=>'gradana',
-      		// );
-
-          // $data['seller_array'] = $seller_array;
-
-          // $data['menu'] = $this->welcome_model->menu();
-          // $data['kategori'] = $this->welcome_model->kategori();
-          // $data['sub_kategori'] = $this->welcome_model->sub_kategori();
-
-          // id_categorie
-          // code_video
-          // nama_video
-          // link_video
-          // desc_video
-          // poster_video
-          // logo_video
 
           $data['banner'] = $this->welcome_model->banner();
           $data['live_tv'] = $this->welcome_model->live_tv();
@@ -164,12 +104,6 @@
           $data['video_energy'] = $this->welcome_model->video_energy();
           $data['video_mitra'] = $this->welcome_model->video_mitra();
           $data['video_umkm'] = $this->welcome_model->video_umkm();
-
-          // $url_host = [];
-          // foreach ($data['video_tv'] as $keys => $value_tv) {
-          //   $external_url = $value_tv->link_video;
-          //   $url_host[$keys] = substr(strrchr($external_url, "."), 1);
-          // }
 
           // var_dump(($data['categorie_tv'])); die();
 
@@ -189,7 +123,7 @@
 
           $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
-          $data['video_tv'] = $this->welcome_model->video_random();
+          $data['video_tv'] = $this->welcome_model->video_vod();
 
           // var_dump(count($data['video_energy'])); die();
 
