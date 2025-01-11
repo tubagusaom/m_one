@@ -83,21 +83,8 @@ class Tv_Video_Categorie_Model extends MY_Model {
 		),
 	);
 
-	// protected $belongs_to = array(
-	// 	'video'=>array(
-	// 		'model'=>'tv_video_model',
-	// 		'primary_key'=>'id_categorie',
-	// 		'retrieve_columns'=>array('nama_video','desc_video')
-	// 	)
-	// );
-
 	protected $_order = array("id" => "DESC");
     protected $_unique = array('unique' => array('id'), 'group' => false);
-
-	// protected $_order = "id_categorie";
-	// protected $_unique = array('unique'=>array('id_categorie'), 'group'=>false);
-
-	//protected $_unique = array('unique'=>array('user_id', 'role_id'), 'group'=>true);
 
 	public function __construct()
 	{

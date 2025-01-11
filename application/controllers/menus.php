@@ -8,8 +8,7 @@ class Menus extends MY_Controller {
 		$this->load->model('Menu_Model');
 	}
 	
-	function index()
-	{
+	function index() {
 		block_access_method();
 	}
 	

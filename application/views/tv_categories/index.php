@@ -7,7 +7,7 @@
 		</td>
 		<td style="width: 66.7%;">
 			<div style="margin: 2px;">
-				<div id="videos"></div>
+				<div id="tv_video_categorie"></div>
 			</div>
 		</td>
 	</tr>

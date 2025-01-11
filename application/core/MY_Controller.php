@@ -327,7 +327,22 @@ class MY_Controller extends CI_Controller {
         }
     }
 
-    function test_mycontroller() {
+    function segment_query_parse($str = "") {
+        $urlArray = parse_url($str);
+        $segment_query = str_replace("v=","v_key=",$urlArray['query']);
+        parse_str($segment_query);
+
+        if(isset($v_key)){
+            return $v_key;
+        }else {
+            return FALSE;
+        }
+
+        
+        // echo json_encode($str);
+    }
+
+    function test_mycontroller($str = "") {
         echo json_encode('test mycontroller');
     }
 
