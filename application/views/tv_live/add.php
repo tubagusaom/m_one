@@ -38,7 +38,7 @@
                         <input id="fileToUpload" class="easyui-filebox" name="fileToUpload" style="width: 250px;" data-options="buttonText: 'Pilih Logo'" data-options="required: true"/>
                         <!-- <br> <b style="color:red;font-size:11px;float:right;">Ukuran gambar 305 x 129</b> -->
 
-                        <input type="hidden" name="poster_live" style="width: 250px;" value="poster_m1.png">
+                        <input type="hidden" name="poster_live" style="width: 250px;" value="poster_blue_m1.png">
                     </td>
                 </tr>
 
