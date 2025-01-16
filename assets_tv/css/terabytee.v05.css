@@ -99,6 +99,17 @@ body {
 	cursor: not-allowed;
 }
 
+.row-live {
+	overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100px;
+}
+.row-live:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 .row:after {
 	content: "";
 	display: table;

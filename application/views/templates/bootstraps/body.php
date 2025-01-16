@@ -161,7 +161,7 @@
       
       <!-- <section class="section" data-lightgallery="group"> -->
         <div class="tab-column">
-            <div class="row">
+            <div class="row-live">
 
             <?php
               foreach ($live_tv as $keys => $value_tv) {
