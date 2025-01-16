@@ -388,8 +388,19 @@ class Welcome_model extends MY_Model {
 
     $query = $this->db->get()->result();
     shuffle ($query);
-    return $query;
+    return $query; 
+  }
+
+  function video_watch($id) {
+    $this->db->from('tv_video');
+    $this->db->order_by('id', 'DESC');
     
+    // $this->db->limit(10);
+    $this->db->where('id', md5($id));
+
+    $query = $this->db->get()->result();
+    shuffle ($query);
+    return $query; 
   }
 
 }

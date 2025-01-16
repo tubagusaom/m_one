@@ -305,7 +305,12 @@
                         <?php
                           $text_link = $value_videos->link_embed;
                           $segmen_link = explode("/", $text_link);
+
+                          // $keyx = $key_terabytee;
+                          // $encrypted_id = bin2hex(openssl_encrypt($value_videos->id,'AES-128-CBC', $key));
+                          // $encrypted_id = encryptx($plaintext, $keyx);
                           
+                          // $link_embed = base_url('watch/'.($encrypted_id).'/'.$segmen_link[4]);
                           $link_embed = base_url('watch/'.$segmen_link[4]);
 
                           // print_r($segmen_link[4]);

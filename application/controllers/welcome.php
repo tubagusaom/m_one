@@ -94,6 +94,9 @@
 
           $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
+          $data['key_terabytee'] = $this->key_terabytee();
+
+
           $data['banner'] = $this->welcome_model->banner();
           $data['live_public_tv'] = $this->welcome_model->live_public_tv();
           $data['live_group_tv'] = $this->welcome_model->live_group_tv();
@@ -159,13 +162,54 @@
       }
 
       function watch_video($id){
+      // function watch_video($id,$code){
         $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
         
         $data['id_embed'] = $id;
-        // var_dump($data['link_embed']); die();
+
+        $key = $this->key_terabytee();
+        // $text=(base64_decode($id));
+        // $encrypted = bin2hex(openssl_encrypt($text,'AES-128-CBC', $key));
+        // $decrypted=openssl_decrypt(hex2bin($id),'AES-128-CBC',$key);
+
+        $plaintext = '15';
+        // $hashedpw = hash('sha256', $plaintext);
+        // $hashx = hash_hmac("sha256", utf8_encode($plaintext), utf8_encode($key), false);
+
+        $encryptedText = $this->encryptx($plaintext, $key);
+        $decryptedText = $this->decryptx($encryptedText, $key);
+        // $padxx = bin2asc($pad);
+
+
+
+        // var_dump(($decryptedText)); die();
 
         $this->load->view('templates/bootstraps/watch_video', $data);
+      }
+
+      function encryptx($string, $key) {
+          $cipher = "AES-256-CBC";
+          $ivlen = openssl_cipher_iv_length($cipher);
+          $iv = openssl_random_pseudo_bytes($ivlen);
+          $ciphertext = openssl_encrypt($string, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+          $hmac = hash_hmac('sha256', $ciphertext, $key, true);
+          return base64_encode($iv . $hmac . $ciphertext);
+      }
+
+      function decryptx($string, $key) {
+          $cipher = "AES-256-CBC";
+          $c = base64_decode($string);
+          $ivlen = openssl_cipher_iv_length($cipher);
+          $iv = substr($c, 0, $ivlen);
+          $hmac = substr($c, $ivlen, $sha2len = 32);
+          $ciphertext = substr($c, $ivlen + $sha2len);
+          $original_plaintext = openssl_decrypt($ciphertext, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+          $calcmac = hash_hmac('sha256', $ciphertext, $key, true);
+          if (hash_equals($hmac, $calcmac)) {
+              return $original_plaintext;
+          }
+          return false;
       }
 
       // public function tutorial($id=false) {

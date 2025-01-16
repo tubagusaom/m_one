@@ -354,6 +354,11 @@ class MY_Controller extends CI_Controller {
         return $url_youtube;
     }
 
+    function key_terabytee($str = "") {
+        $key = '5239223jsasash432h432hb4ddsadswadsfsdfb';
+        return $key;
+    }
+
     function test_mycontroller($str = "") {
         echo json_encode('test mycontroller');
     }
