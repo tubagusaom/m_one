@@ -313,9 +313,9 @@ class Welcome_model extends MY_Model {
     // $this->db->limit(10);
     $this->db->where('id >', '3');
 
-    $query = $this->db->get();
+    $query = $this->db->get()->result();
     shuffle ($query);
-    return $query->result();
+    return $query;
   }
 
   function video_energy()
