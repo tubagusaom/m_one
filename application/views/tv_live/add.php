@@ -1,3 +1,4 @@
+
 <div class="form-panel" style="margin-top: 20px; margin-bottom: 30px;">
     <div class="x-panel-bwrap">
         <form id="myform" enctype="multipart/form-data" action="<?php echo $url ?>">
@@ -34,10 +35,10 @@
                 <tr>
                     <td>Logo : </td>
                     <td>
-                        <input id="fileToUpload" class="easyui-filebox" name="fileToUpload" style="width: 250px;" data-options="buttonText: 'Pilih Logo'" />
+                        <input id="fileToUpload" class="easyui-filebox" name="fileToUpload" style="width: 250px;" data-options="buttonText: 'Pilih Logo'" data-options="required: true"/>
                         <!-- <br> <b style="color:red;font-size:11px;float:right;">Ukuran gambar 305 x 129</b> -->
 
-                        <input type="hidden" name="poster_live" style="width: 250px;" value="poster-video-blue.png">
+                        <input type="hidden" name="poster_live" style="width: 250px;" value="poster_m1.png">
                     </td>
                 </tr>
 

@@ -65,7 +65,6 @@ class Tv_live extends MY_Controller {
 
             
             $this->load->model('tv_categories_live_model');
-            // $this->db->order_by('categorie_live', 'ASC');
             $categorie_live = $this->tv_categories_live_model->dropdown('id', 'categorie_live');
             
             $data_code = $this->tv_live_model->data_desc();
@@ -144,8 +143,11 @@ class Tv_live extends MY_Controller {
             $con_method = $this->tv_live_model->get(intval($id));
             if (sizeof($con_method) == 1) {
 
+                $this->load->model('tv_categories_live_model');
+                $categorie_live = $this->tv_categories_live_model->dropdown('id', 'categorie_live');
+
                 $data = $this->tv_live_model->get_single($con_method);
-                $view = $this->load->view('tv_live/edit', array('data' => $data,'url' => base_url() . 'tv_live/edit_upload/' . $id), TRUE);
+                $view = $this->load->view('tv_live/edit', array('categorie_live' => $categorie_live,'data' => $data,'url' => base_url() . 'tv_live/edit_upload/' . $id), TRUE);
                 echo json_encode(array('msgType' => 'success', 'msgValue' => $view));
             } else {
                 echo json_encode(array('msgType' => 'error', 'msgValue' => 'Data tidak dapat ditemukan !'));
@@ -191,9 +193,10 @@ class Tv_live extends MY_Controller {
                             echo json_encode(array('msgType' => 'error', 'msgValue' => strip_tags($this->upload->display_errors())));
                             exit();
                         }
-                    }else{
-                        $data['logo_link'] = $this->input->post('foto_hidden');
                     }
+                    // else{
+                    //     $data['logo_live'] = $this->input->post('foto_hidden');
+                    // }
 
                     if ($this->tv_live_model->update(intval($id), $data) !== false) {
                         echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data berhasil diubah !'));

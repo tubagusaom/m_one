@@ -15,7 +15,7 @@ protected $_columns = array(
         'rule' => 'trim|xss_clean',
         'formatter' => 'url2images',
         'save_formatter' => 'string',
-        'width' => 15,
+        'width' => 10,
         'align' =>'center',
     ),
     'logo_live' => array(
@@ -64,6 +64,7 @@ protected $_columns = array(
         'width' => 15,
     ),
 );
+
 
     protected $_order = array("id" => "DESC");
     protected $_unique = array('unique' => array('id'), 'group' => false);

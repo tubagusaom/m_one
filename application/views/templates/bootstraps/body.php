@@ -170,10 +170,10 @@
               <div id="live-tv" class="column_tb lives_tv" role="presentation" data-code="<?=$value_tv->code_live?>">
                 <div class="nav nav-tabs">
                   <div class="nav-item" role="presentation">
-                    <a id="myAnchor-<?=$value_tv->code_live?>" class="nav-link" href="#tabs-2-<?=$value_tv->code_live?>" data-toggle="tab" data-key="<?=$value_tv->code_live?>" data-name="<?=$value_tv->nama_live?>" data-url="<?=$value_tv->link_live?>" data-poster="<?=$value_tv->poster_live?>" data-logo="<?=$value_tv->logo_live?>">
+                    <a id="myAnchor-<?=$value_tv->code_live?>" class="nav-link" href="#tabs-2-<?=$value_tv->code_live?>" data-toggle="tab" data-key="<?=$value_tv->code_live?>" data-name="<?=$value_tv->nama_live?>" data-url="<?=$value_tv->link_live?>" data-poster="<?=$value_tv->poster_live?>" data-logo="<?=$value_tv->logo_live?>" title="<?=$value_tv->nama_live?>">
                       <div class="nav-video">
                         <figure class="nav-video-figure">
-                          <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_tv->logo_live?>" alt=""/>
+                          <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_tv->logo_live?>" alt="mitraonetv"/>
                         </figure>
                       </div>
                     </a>
