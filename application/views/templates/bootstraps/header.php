@@ -41,7 +41,7 @@
 	</style> -->
 
     <link href="<?php echo base_url() ?>assets_tv/css/video.js.v01.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets_tv/css/terabytee.v06.css" rel="stylesheet" />
+    <link href="<?php echo base_url() ?>assets_tv/css/terabytee.v07.css" rel="stylesheet" />
     <!-- <script defer src="<?php echo base_url() ?>assets_tv/js/video.min.js"></script> -->
 
     <!-- <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet" /> -->

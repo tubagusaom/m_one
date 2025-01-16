@@ -110,7 +110,17 @@ $(document).on('click', '[data-action=copy]', function (){
         }
     });
 
-    $('.lives_tv').each(function() {
+    $('.lives_public').each(function() {
+      var codeLive     = $(this).data('code');
+
+      videojs("hls-example-" + codeLive).pause();
+      videojs("hls-example-" + codeLive).removeClass('video-bg');
+
+      // alert(codeLive);
+          
+    });
+
+    $('.lives_group').each(function() {
       var codeLive     = $(this).data('code');
 
       videojs("hls-example-" + codeLive).pause();
@@ -124,26 +134,17 @@ $(document).on('click', '[data-action=copy]', function (){
     $("#mitra-video").attr("style", "display:none");
     $("#umkm-video").attr("style", "display:none");
 
-    $('.nav-link').click(function(){
-        var myId = $(this).attr('id');
-        var keys = $(this).data('key');
+    $('.nav-link-public').click(function(){
+        var myIdP = $(this).attr('id');
+        var keysP = $(this).data('key');
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
-        // alert(myId);
+        // alert(keysP);
 
         $("#frame-1").attr("src","");
         $("#frame-2").attr("src","");
         $("#frame-3").attr("src","");
-
-        $('.v-video').each(function() {
-          var cVideos = $(this).data('cvideo');
-
-          $("#frame-" + cVideos).attr("src","");
-
-          $('#tabs-2-' + cVideos).removeClass("active");
-          $('#tabs-2-' + cVideos).removeClass("show");
-        });
           
         // myId.addClass("active");
         // myId.addClass("show");$("#latest-video").attr("style", "display:none");
@@ -152,29 +153,132 @@ $(document).on('click', '[data-action=copy]', function (){
         $("#mitra-video").attr("style", "display:none");
         $("#umkm-video").attr("style", "display:none");
 
-        $('.column_tb').each(function() {
-          var codex     = $(this).data('code');
-          var myAnchor  = 'myAnchor-'+codex;
+        $('.lives_public').each(function() {
+          var codexP     = $(this).data('code');
+          var myAnchorP  = 'myAnchor-'+codexP;
 
-          const array = [codex];
-          if ((array.includes(keys))) {
+          const arrayP = [codexP];
+          if ((arrayP.includes(keysP))) {
             // alert(`${keys} exists in the array.`);
-            videojs("hls-example-" + keys).play();
-            videojs("hls-example-" + keys).removeClass('video-bg');
+            videojs("hls-example-" + keysP).play();
+            videojs("hls-example-" + keysP).removeClass('video-bg');
+
+            $('#item-public-'+keysP).addClass("playy");
           }
           
-          if (!(array.includes(keys))) {
+          if (!(arrayP.includes(keysP))) {
             // alert(`${array} does not exist in the array.`);
-            videojs("hls-example-" + array).pause();
-            $('#myAnchor-'+array).removeClass("active");
-            $('#myAnchor-'+array).removeClass("show");
+            videojs("hls-example-" + arrayP).pause();
+            $('#myAnchor-'+arrayP).removeClass("active");
+            $('#myAnchor-'+arrayP).removeClass("show");
+
+            $('#item-public-'+arrayP).removeClass("playy");
           }
 
           // alert(codex);
           
         });
 
+        $('.lives_group').each(function() {
+
+          var codexG     = $(this).data('code');
+          var myAnchorG  = 'myAnchor-'+codexG;
+
+          videojs("hls-example-" + codexG).pause();
+          videojs("hls-example-" + codexG).removeClass('video-bg');
+
+          $('#'+myAnchorG).removeClass("active");
+          $('#'+myAnchorG).removeClass("show");
+
+          $('#item-public-'+codexG).removeClass("playy");
+
+        });
+
+        $('.v-video').each(function() {
+          var cVideosP = $(this).data('cvideo');
+
+          $("#frame-" + cVideosP).attr("src","");
+
+          $('#tabs-2-' + cVideosP).removeClass("active");
+          $('#tabs-2-' + cVideosP).removeClass("show");
+        });
+
       });
+
+
+
+
+    $('.nav-link-group').click(function(){
+        var myIdG = $(this).attr('id');
+        var keysG = $(this).data('key');
+
+        $(window).scrollTop($('#tabs-2').offset().top-100);
+        
+        // alert(myId);
+
+        $("#frame-1").attr("src","");
+        $("#frame-2").attr("src","");
+        $("#frame-3").attr("src","");
+
+        $("#latest-video").attr("style", "display:block");
+        $("#energy-video").attr("style", "display:none");
+        $("#mitra-video").attr("style", "display:none");
+        $("#umkm-video").attr("style", "display:none");
+
+        $('.lives_group').each(function() {
+          var codexG     = $(this).data('code');
+          var myAnchorG  = 'myAnchor-'+codexG;
+
+          const arrayG = [codexG];
+          if ((arrayG.includes(keysG))) {
+            // alert(`${keys} exists in the array.`);
+            videojs("hls-example-" + keysG).play();
+            videojs("hls-example-" + keysG).removeClass('video-bg');
+
+            $('#item-public-'+keysG).addClass("playy");
+          }
+          
+          if (!(arrayG.includes(keysG))) {
+            // alert(`${array} does not exist in the array.`);
+            videojs("hls-example-" + arrayG).pause();
+            $('#myAnchor-'+arrayG).removeClass("active");
+            $('#myAnchor-'+arrayG).removeClass("show");
+
+            $('#item-public-'+arrayG).removeClass("playy");
+          }
+
+          // alert(codex);
+          
+        });
+
+        $('.lives_public').each(function() {
+
+          var codexP     = $(this).data('code');
+          var myAnchorP  = 'myAnchor-'+codexP;
+
+          videojs("hls-example-" + codexP).pause();
+          videojs("hls-example-" + codexP).removeClass('video-bg');
+
+          $('#'+myAnchorP).removeClass("active");
+          $('#'+myAnchorP).removeClass("show");
+
+            $('#item-public-'+codexP).removeClass("playy");
+
+        });
+
+        $('.v-video').each(function() {
+          var cVideosG = $(this).data('cvideo');
+
+          $("#frame-" + cVideosG).attr("src","");
+
+          $('#tabs-2-' + cVideosG).removeClass("active");
+          $('#tabs-2-' + cVideosG).removeClass("show");
+        });
+
+      });
+
+
+
 
     $('#corner-1').click(function(){
 
@@ -193,7 +297,7 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-' + codeVideos1).removeClass("show");
         });
 
-        $('.lives_tv').each(function() {
+        $('.lives_public').each(function() {
           var codeAnc     = $(this).data('code');
           var myAnchorArr  = '#myAnchor-'+codeAnc;
 
@@ -203,8 +307,29 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
+          $('#item-public-'+codeAnc).removeClass("playy");
+
           videojs("hls-example-" + codeAnc).pause();
           videojs("hls-example-" + codeAnc).removeClass('video-bg');
+
+          // alert(codeAnc);
+          
+        });
+
+        $('.lives_group').each(function() {
+          var codeAncG     = $(this).data('code');
+          var myAnchorArrG  = '#myAnchor-'+codeAncG;
+
+          $(myAnchorArrG).removeClass("active");
+          $(myAnchorArrG).removeClass("show");
+
+          $('#tabs-2-'+codeAncG).removeClass("active");
+          $('#tabs-2-'+codeAncG).removeClass("active");
+
+          $('#item-public-'+codeAncG).removeClass("playy");
+
+          videojs("hls-example-" + codeAncG).pause();
+          videojs("hls-example-" + codeAncG).removeClass('video-bg');
 
           // alert(codeAnc);
           
@@ -224,6 +349,9 @@ $(document).on('click', '[data-action=copy]', function (){
         $('#tabs-2-3').removeClass("show");
     });
 
+
+
+
     $('#corner-2').click(function(){
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
@@ -241,7 +369,7 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-' + codeVideos2).removeClass("show");
         });
 
-        $('.lives_tv').each(function() {
+        $('.lives_public').each(function() {
           var codeAnc     = $(this).data('code');
           var myAnchorArr  = '#myAnchor-'+codeAnc;
 
@@ -251,10 +379,31 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
+          $('#item-public-'+codeAnc).removeClass("playy");
+
           videojs("hls-example-" + codeAnc).pause();
           videojs("hls-example-" + codeAnc).removeClass('video-bg');
 
           // alert(myAnchor);
+          
+        });
+
+        $('.lives_group').each(function() {
+          var codeAncG     = $(this).data('code');
+          var myAnchorArrG  = '#myAnchor-'+codeAncG;
+
+          $(myAnchorArrG).removeClass("active");
+          $(myAnchorArrG).removeClass("show");
+
+          $('#tabs-2-'+codeAncG).removeClass("active");
+          $('#tabs-2-'+codeAncG).removeClass("active");
+
+          $('#item-public-'+codeAncG).removeClass("playy");
+
+          videojs("hls-example-" + codeAncG).pause();
+          videojs("hls-example-" + codeAncG).removeClass('video-bg');
+
+          // alert(codeAnc);
           
         });
 
@@ -271,6 +420,10 @@ $(document).on('click', '[data-action=copy]', function (){
         $('#tabs-2-3').removeClass("active");
         $('#tabs-2-3').removeClass("show");
     });
+
+
+
+
 
     $('#corner-3').click(function(){
 
@@ -289,7 +442,7 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-' + codeVideos3).removeClass("show");
         });
 
-        $('.lives_tv').each(function() {
+        $('.lives_public').each(function() {
           var codeAnc     = $(this).data('code');
           var myAnchorArr  = '#myAnchor-'+codeAnc;
 
@@ -299,10 +452,31 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
+          $('#item-public-'+codeAnc).removeClass("playy");
+
           videojs("hls-example-" + codeAnc).pause();
           videojs("hls-example-" + codeAnc).removeClass('video-bg');
 
           // alert(myAnchor);
+          
+        });
+
+        $('.lives_group').each(function() {
+          var codeAncG     = $(this).data('code');
+          var myAnchorArrG  = '#myAnchor-'+codeAncG;
+
+          $(myAnchorArrG).removeClass("active");
+          $(myAnchorArrG).removeClass("show");
+
+          $('#tabs-2-'+codeAncG).removeClass("active");
+          $('#tabs-2-'+codeAncG).removeClass("active");
+
+          $('#item-public-'+codeAncG).removeClass("playy");
+
+          videojs("hls-example-" + codeAncG).pause();
+          videojs("hls-example-" + codeAncG).removeClass('video-bg');
+
+          // alert(codeAnc);
           
         });
 
@@ -320,6 +494,10 @@ $(document).on('click', '[data-action=copy]', function (){
         $('#tabs-2-2').removeClass("show");
 
     });
+
+
+
+
 
     $('.click-video').click(function(){
 
@@ -340,7 +518,7 @@ $(document).on('click', '[data-action=copy]', function (){
       $('#tabs-2-' + keys).addClass("active");
       $('#tabs-2-' + keys).addClass("show");
       
-      $('.lives_tv').each(function() {
+      $('.lives_public').each(function() {
           var codeAnc     = $(this).data('code');
           var myAnchorArr  = '#myAnchor-'+codeAnc;
 
@@ -350,12 +528,33 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
+          $('#item-public-'+codeAnc).removeClass("playy");
+
           videojs("hls-example-" + codeAnc).pause();
           videojs("hls-example-" + codeAnc).removeClass('video-bg');
 
           // alert(myAnchor);
           
       });
+
+        $('.lives_group').each(function() {
+          var codeAncG     = $(this).data('code');
+          var myAnchorArrG  = '#myAnchor-'+codeAncG;
+
+          $(myAnchorArrG).removeClass("active");
+          $(myAnchorArrG).removeClass("show");
+
+          $('#tabs-2-'+codeAncG).removeClass("active");
+          $('#tabs-2-'+codeAncG).removeClass("active");
+
+          $('#item-public-'+codeAncG).removeClass("playy");
+
+          videojs("hls-example-" + codeAncG).pause();
+          videojs("hls-example-" + codeAncG).removeClass('video-bg');
+
+          // alert(codeAnc);
+          
+        });
 
       $('.tv-video').each(function() {
         var codes = $(this).data('codev');

@@ -132,6 +132,32 @@
                 }
               ?>
 
+              <?php
+                foreach ($live_group_tv as $key => $group) {
+              ?>
+
+              <div class="tab-pane fade" id="tabs-2-<?=$group->code_live?>">
+                <div id="vid-bg" class="entry-video hls-embed-responsive embed-responsive-16by9">
+                    <video
+                      id="hls-example-<?=$group->code_live?>"
+                      class="video-js vjs-default-skin"
+                      width="2000"
+                      height="400"
+                      controls
+                      poster="<?=base_url()?>assets_tv/images/tv/<?=$group->poster_live?>"
+                    >
+                      <source
+                        type="application/x-mpegURL"
+                        src="<?=$group->link_live?>"
+                      />
+                    </video>
+                </div>
+              </div>
+
+              <?php
+                }
+              ?>
+
               
 
               <?php
@@ -171,10 +197,10 @@
                 foreach ($live_public_tv as $keys => $value_tv) {
               ?>  
             
-              <div id="live-tv" class="column_tb lives_tv" role="presentation" data-code="<?=$value_tv->code_live?>">
+              <div id="live-public" class="column_tb lives_public" role="presentation" data-code="<?=$value_tv->code_live?>">
                 <div class="nav nav-tabs">
-                  <div class="nav-item" role="presentation">
-                    <a id="myAnchor-<?=$value_tv->code_live?>" class="nav-link" href="#tabs-2-<?=$value_tv->code_live?>" data-toggle="tab" data-key="<?=$value_tv->code_live?>" data-name="<?=$value_tv->nama_live?>" data-url="<?=$value_tv->link_live?>" data-poster="<?=$value_tv->poster_live?>" data-logo="<?=$value_tv->logo_live?>" title="<?=$value_tv->nama_live?>">
+                  <div id="item-public-<?=$value_tv->code_live?>" class="nav-item" role="presentation">
+                    <a id="myAnchor-<?=$value_tv->code_live?>" class="nav-link-public" href="#tabs-2-<?=$value_tv->code_live?>" data-toggle="tab" data-key="<?=$value_tv->code_live?>" data-name="<?=$value_tv->nama_live?>" data-url="<?=$value_tv->link_live?>" data-poster="<?=$value_tv->poster_live?>" data-logo="<?=$value_tv->logo_live?>" title="<?=$value_tv->nama_live?>">
                       <div class="nav-video">
                         <figure class="nav-video-figure">
                           <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_tv->logo_live?>" alt="mitraonetv"/>
@@ -201,10 +227,10 @@
                 foreach ($live_group_tv as $keys => $value_group) {
               ?>  
             
-              <div id="live-tv" class="column_tb lives_tv" role="presentation" data-code="<?=$value_group->code_live?>">
+              <div id="live-group" class="column_tb lives_group" role="presentation" data-code="<?=$value_group->code_live?>">
                 <div class="nav nav-tabs">
-                  <div class="nav-item" role="presentation">
-                    <a id="myAnchor-<?=$value_group->code_live?>" class="nav-link" href="#tabs-2-<?=$value_group->code_live?>" data-toggle="tab" data-key="<?=$value_group->code_live?>" data-name="<?=$value_group->nama_live?>" data-url="<?=$value_group->link_live?>" data-poster="<?=$value_group->poster_live?>" data-logo="<?=$value_group->logo_live?>" title="<?=$value_group->nama_live?>">
+                  <div id="item-public-<?=$value_group->code_live?>" class="nav-item" role="presentation">
+                    <a id="myAnchor-<?=$value_group->code_live?>" class="nav-link-group" href="#tabs-2-<?=$value_group->code_live?>" data-toggle="tab" data-key="<?=$value_group->code_live?>" data-name="<?=$value_group->nama_live?>" data-url="<?=$value_group->link_live?>" data-poster="<?=$value_group->poster_live?>" data-logo="<?=$value_group->logo_live?>" title="<?=$value_group->nama_live?>">
                       <div class="nav-video">
                         <figure class="nav-video-figure">
                           <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_group->logo_live?>" alt="mitraonetv"/>

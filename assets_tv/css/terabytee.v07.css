@@ -142,7 +142,17 @@ body {
 	border-radius: 5px !important;
 }
 
-.nav-tabs .nav-link.active {
+.lives_public .nav-link-public.active ,
+.lives_group .nav-link-group.active {
+	background-color: #ffeee0 !important;
+	border-color: #dee2e6 #dee2e6 #fff;
+	/* border-radius: 0px 15px 0px 15px!important; */
+	border-radius: 5px;
+	margin: 5px;
+	padding: 0px;
+}
+
+.nav-item.playy {
 	background-color: #ffeee0 !important;
 	border-color: #dee2e6 #dee2e6 #fff;
 	/* border-radius: 0px 15px 0px 15px!important; */
