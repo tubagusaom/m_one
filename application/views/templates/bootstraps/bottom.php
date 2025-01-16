@@ -111,10 +111,11 @@ $(document).on('click', '[data-action=copy]', function (){
         }
     });
 
-    var player1 = videojs("hls-example-1");
-    var player2 = videojs("hls-example-2");
-    var player3 = videojs("hls-example-3");
-    var player4 = videojs("hls-example-4");
+    var player1 = videojs("hls-example-11");
+    var player2 = videojs("hls-example-12");
+    var player3 = videojs("hls-example-13");
+    var player4 = videojs("hls-example-14");
+    var player5 = videojs("hls-example-15");
 
     $("#energy-video").attr("style", "display:none");
     $("#mitra-video").attr("style", "display:none");
@@ -177,6 +178,7 @@ $(document).on('click', '[data-action=copy]', function (){
         player2.pause();
         player3.pause();
         player4.pause();
+        player5.pause();
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
@@ -193,35 +195,32 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-' + codeVideos1).removeClass("show");
         });
 
+        $('.lives_tv').each(function() {
+          var codeAnc     = $(this).data('code');
+          var myAnchorArr  = '#myAnchor-'+codeAnc;
+
+          $(myAnchorArr).removeClass("active");
+          $(myAnchorArr).removeClass("show");
+
+          $('#tabs-2-'+codeAnc).removeClass("active");
+          $('#tabs-2-'+codeAnc).removeClass("active");
+
+          // alert(myAnchor);
+          
+        });
+
         $("#latest-video").attr("style", "display:none");
         $("#energy-video").attr("style", "display:block");
         $("#mitra-video").attr("style", "display:none");
         $("#umkm-video").attr("style", "display:none");
 
-        $('#tabs-2-5').addClass("active");
-        $('#tabs-2-5').addClass("show");
+        $('#tabs-2-1').addClass("active");
+        $('#tabs-2-1').addClass("show");
 
-        $('#tabs-2-1').removeClass("active");
-        $('#tabs-2-1').removeClass("show");
         $('#tabs-2-2').removeClass("active");
         $('#tabs-2-2').removeClass("show");
         $('#tabs-2-3').removeClass("active");
         $('#tabs-2-3').removeClass("show");
-        $('#tabs-2-4').removeClass("active");
-        $('#tabs-2-4').removeClass("show");
-        $('#tabs-2-6').removeClass("active");
-        $('#tabs-2-6').removeClass("show");
-        $('#tabs-2-7').removeClass("active");
-        $('#tabs-2-7').removeClass("show");
-        
-        $('#myAnchor-1').removeClass("active");
-        $('#myAnchor-1').removeClass("show");
-        $('#myAnchor-2').removeClass("active");
-        $('#myAnchor-2').removeClass("show");
-        $('#myAnchor-3').removeClass("active");
-        $('#myAnchor-3').removeClass("show");
-        $('#myAnchor-4').removeClass("active");
-        $('#myAnchor-4').removeClass("show");
     });
 
     $('#corner-2').click(function(){
@@ -229,6 +228,7 @@ $(document).on('click', '[data-action=copy]', function (){
         player2.pause();
         player3.pause();
         player4.pause();
+        player5.pause();
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
@@ -245,35 +245,32 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-' + codeVideos2).removeClass("show");
         });
 
+        $('.lives_tv').each(function() {
+          var codeAnc     = $(this).data('code');
+          var myAnchorArr  = '#myAnchor-'+codeAnc;
+
+          $(myAnchorArr).removeClass("active");
+          $(myAnchorArr).removeClass("show");
+
+          $('#tabs-2-'+codeAnc).removeClass("active");
+          $('#tabs-2-'+codeAnc).removeClass("active");
+
+          // alert(myAnchor);
+          
+        });
+
         $("#latest-video").attr("style", "display:none");
         $("#energy-video").attr("style", "display:none");
         $("#mitra-video").attr("style", "display:block");
         $("#umkm-video").attr("style", "display:none");
 
-        $('#tabs-2-6').addClass("active");
-        $('#tabs-2-6').addClass("show");
+        $('#tabs-2-2').addClass("active");
+        $('#tabs-2-2').addClass("show");
 
         $('#tabs-2-1').removeClass("active");
         $('#tabs-2-1').removeClass("show");
-        $('#tabs-2-2').removeClass("active");
-        $('#tabs-2-2').removeClass("show");
         $('#tabs-2-3').removeClass("active");
         $('#tabs-2-3').removeClass("show");
-        $('#tabs-2-4').removeClass("active");
-        $('#tabs-2-4').removeClass("show");
-        $('#tabs-2-5').removeClass("active");
-        $('#tabs-2-5').removeClass("show");
-        $('#tabs-2-7').removeClass("active");
-        $('#tabs-2-7').removeClass("show");
-        
-        $('#myAnchor-1').removeClass("active");
-        $('#myAnchor-1').removeClass("show");
-        $('#myAnchor-2').removeClass("active");
-        $('#myAnchor-2').removeClass("show");
-        $('#myAnchor-3').removeClass("active");
-        $('#myAnchor-3').removeClass("show");
-        $('#myAnchor-4').removeClass("active");
-        $('#myAnchor-4').removeClass("show");
     });
 
     $('#corner-3').click(function(){
@@ -281,6 +278,7 @@ $(document).on('click', '[data-action=copy]', function (){
         player2.pause();
         player3.pause();
         player4.pause();
+        player5.pause();
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
@@ -297,35 +295,33 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-' + codeVideos3).removeClass("show");
         });
 
+        $('.lives_tv').each(function() {
+          var codeAnc     = $(this).data('code');
+          var myAnchorArr  = '#myAnchor-'+codeAnc;
+
+          $(myAnchorArr).removeClass("active");
+          $(myAnchorArr).removeClass("show");
+
+          $('#tabs-2-'+codeAnc).removeClass("active");
+          $('#tabs-2-'+codeAnc).removeClass("active");
+
+          // alert(myAnchor);
+          
+        });
+
         $("#latest-video").attr("style", "display:none");
         $("#energy-video").attr("style", "display:none");
         $("#mitra-video").attr("style", "display:none");
         $("#umkm-video").attr("style", "display:block");
 
-        $('#tabs-2-7').addClass("active");
-        $('#tabs-2-7').addClass("show");
+        $('#tabs-2-3').addClass("active");
+        $('#tabs-2-3').addClass("show");
 
         $('#tabs-2-1').removeClass("active");
         $('#tabs-2-1').removeClass("show");
         $('#tabs-2-2').removeClass("active");
         $('#tabs-2-2').removeClass("show");
-        $('#tabs-2-3').removeClass("active");
-        $('#tabs-2-3').removeClass("show");
-        $('#tabs-2-4').removeClass("active");
-        $('#tabs-2-4').removeClass("show");
-        $('#tabs-2-5').removeClass("active");
-        $('#tabs-2-5').removeClass("show");
-        $('#tabs-2-6').removeClass("active");
-        $('#tabs-2-6').removeClass("show");
-        
-        $('#myAnchor-1').removeClass("active");
-        $('#myAnchor-1').removeClass("show");
-        $('#myAnchor-2').removeClass("active");
-        $('#myAnchor-2').removeClass("show");
-        $('#myAnchor-3').removeClass("active");
-        $('#myAnchor-3').removeClass("show");
-        $('#myAnchor-4').removeClass("active");
-        $('#myAnchor-4').removeClass("show");
+
     });
 
     $('.click-video').click(function(){
@@ -334,6 +330,7 @@ $(document).on('click', '[data-action=copy]', function (){
       player2.pause();
       player3.pause();
       player4.pause();
+      player5.pause();
 
       // var keys = $(this).data('key');
       var keys = $(this).data('key');
@@ -351,12 +348,15 @@ $(document).on('click', '[data-action=copy]', function (){
       $('#tabs-2-' + keys).addClass("active");
       $('#tabs-2-' + keys).addClass("show");
       
-      $('.column_tb').each(function() {
+      $('.lives_tv').each(function() {
           var codeAnc     = $(this).data('code');
           var myAnchorArr  = '#myAnchor-'+codeAnc;
 
           $(myAnchorArr).removeClass("active");
           $(myAnchorArr).removeClass("show");
+
+          $('#tabs-2-'+codeAnc).removeClass("active");
+          $('#tabs-2-'+codeAnc).removeClass("active");
 
           // alert(myAnchor);
           
@@ -383,14 +383,6 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-2').removeClass("show");
           $('#tabs-2-3').removeClass("active");
           $('#tabs-2-3').removeClass("show");
-          $('#tabs-2-4').removeClass("active");
-          $('#tabs-2-4').removeClass("show");
-          $('#tabs-2-5').removeClass("active");
-          $('#tabs-2-5').removeClass("show");
-          $('#tabs-2-6').removeClass("active");
-          $('#tabs-2-6').removeClass("show");
-          $('#tabs-2-7').removeClass("active");
-          $('#tabs-2-7').removeClass("show");
         };
 
       });

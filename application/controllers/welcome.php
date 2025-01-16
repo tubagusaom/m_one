@@ -105,7 +105,7 @@
           $data['video_mitra'] = $this->welcome_model->video_mitra();
           $data['video_umkm'] = $this->welcome_model->video_umkm();
 
-          // var_dump(($data['categorie_tv'])); die();
+          // var_dump(($data['live_tv'])); die();
 
           $this->load->view('templates/bootstraps/header', $data);
           $this->load->view('templates/bootstraps/body', $data);

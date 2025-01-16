@@ -65,19 +65,19 @@
 
             <div class="tab-content">
 
-              <div class="tab-pane show active" id="tabs-2-5">
+              <div class="tab-pane show active" id="tabs-2-1">
                 <div id="vid-bg" class="entry-video hls-embed-responsive embed-responsive-16by9">
                   <iframe id="frame-1" class="frame-video" width="660" height="365" src="https://www.youtube.com/embed/xI0N1WUk840" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
               </div>
 
-              <div class="tab-pane" id="tabs-2-6">
+              <div class="tab-pane" id="tabs-2-2">
                 <div id="vid-bg" class="entry-video hls-embed-responsive embed-responsive-16by9">
                   <iframe id="frame-2" class="frame-video" width="660" height="365" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
               </div>
 
-              <div class="tab-pane" id="tabs-2-7">
+              <div class="tab-pane" id="tabs-2-3">
                 <div id="vid-bg" class="entry-video hls-embed-responsive embed-responsive-16by9">
                   <iframe id="frame-3" class="frame-video" width="660" height="365" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -100,19 +100,19 @@
                   // if($url_host == 'm3u8'){
               ?>
 
-              <div class="tab-pane fade" id="tabs-2-<?=$value->code_video?>">
+              <div class="tab-pane fade" id="tabs-2-<?=$value->code_live?>">
                 <div id="vid-bg" class="entry-video hls-embed-responsive embed-responsive-16by9">
                     <video
-                      id="hls-example-<?=$value->code_video?>"
+                      id="hls-example-<?=$value->code_live?>"
                       class="video-js vjs-default-skin"
                       width="2000"
                       height="400"
                       controls
-                      poster="<?=base_url()?>assets_tv/images/tv/<?=$value->poster_video?>"
+                      poster="<?=base_url()?>assets_tv/images/tv/<?=$value->poster_live?>"
                     >
                       <source
                         type="application/x-mpegURL"
-                        src="<?=$value->link_video?>"
+                        src="<?=$value->link_live?>"
                       />
                     </video>
                 </div>
@@ -168,13 +168,13 @@
               foreach ($live_tv as $keys => $value_tv) {
             ?>  
             
-              <div class="column_tb" role="presentation" data-code="<?=$value_tv->code_video?>">
+              <div id="live-tv" class="column_tb lives_tv" role="presentation" data-code="<?=$value_tv->code_live?>">
                 <div class="nav nav-tabs">
                   <div class="nav-item" role="presentation">
-                    <a id="myAnchor-<?=$value_tv->code_video?>" class="nav-link" href="#tabs-2-<?=$value_tv->code_video?>" data-toggle="tab" data-key="<?=$value_tv->code_video?>" data-name="<?=$value_tv->nama_video?>" data-url="<?=$value_tv->link_video?>" data-poster="<?=$value_tv->poster_video?>" data-logo="<?=$value_tv->logo_video?>">
+                    <a id="myAnchor-<?=$value_tv->code_live?>" class="nav-link" href="#tabs-2-<?=$value_tv->code_live?>" data-toggle="tab" data-key="<?=$value_tv->code_live?>" data-name="<?=$value_tv->nama_live?>" data-url="<?=$value_tv->link_live?>" data-poster="<?=$value_tv->poster_live?>" data-logo="<?=$value_tv->logo_live?>">
                       <div class="nav-video">
                         <figure class="nav-video-figure">
-                          <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_tv->logo_video?>" alt=""/>
+                          <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_tv->logo_live?>" alt=""/>
                         </figure>
                       </div>
                     </a>
