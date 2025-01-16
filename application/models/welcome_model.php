@@ -272,9 +272,18 @@ class Welcome_model extends MY_Model {
 
 
 
-  function live_tv()
+  function live_public_tv()
   {
     $this->db->from('tv_live');
+    $this->db->where('id_categories', '1');
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+  function live_group_tv()
+  {
+    $this->db->from('tv_live');
+    $this->db->where('id_categories', '2');
     $query = $this->db->get();
     return $query->result();
   }

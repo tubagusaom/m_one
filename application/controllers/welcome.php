@@ -95,7 +95,8 @@
           $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
           $data['banner'] = $this->welcome_model->banner();
-          $data['live_tv'] = $this->welcome_model->live_tv();
+          $data['live_public_tv'] = $this->welcome_model->live_public_tv();
+          $data['live_group_tv'] = $this->welcome_model->live_group_tv();
 
           $data['categorie_tv'] = $this->welcome_model->categorie_tv();
           $data['video_tv'] = $this->welcome_model->video_tv();

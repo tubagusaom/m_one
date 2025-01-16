@@ -90,7 +90,7 @@
               
               <?php
                 // $url_host = [];
-                foreach ($live_tv as $key => $value) {
+                foreach ($live_public_tv as $key => $value) {
                   // $external_url = $value->link_video;
                   // $url_host = substr(strrchr($external_url, "."), 1);
 
@@ -160,12 +160,16 @@
       </div>
       
       <!-- <section class="section" data-lightgallery="group"> -->
-        <div class="tab-column">
+        <div id="tab-live" class="tab-column">
             <div class="row-live">
 
-            <?php
-              foreach ($live_tv as $keys => $value_tv) {
-            ?>  
+              <div class="text-left">
+                <h6 class="text-gray-600" style="font-weight: bold;color: #f47f1f;">Public</h6>
+              </div>
+
+              <?php
+                foreach ($live_public_tv as $keys => $value_tv) {
+              ?>  
             
               <div id="live-tv" class="column_tb lives_tv" role="presentation" data-code="<?=$value_tv->code_live?>">
                 <div class="nav nav-tabs">
@@ -174,6 +178,36 @@
                       <div class="nav-video">
                         <figure class="nav-video-figure">
                           <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_tv->logo_live?>" alt="mitraonetv"/>
+                        </figure>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <?php
+                }
+              ?>
+
+            </div>
+
+            <div class="row-live">
+
+              <div class="text-left">
+                <h6 class="text-gray-600" style="font-weight: bold;color: #f47f1f;">Group</h6>
+              </div>
+
+              <?php
+                foreach ($live_group_tv as $keys => $value_group) {
+              ?>  
+            
+              <div id="live-tv" class="column_tb lives_tv" role="presentation" data-code="<?=$value_group->code_live?>">
+                <div class="nav nav-tabs">
+                  <div class="nav-item" role="presentation">
+                    <a id="myAnchor-<?=$value_group->code_live?>" class="nav-link" href="#tabs-2-<?=$value_group->code_live?>" data-toggle="tab" data-key="<?=$value_group->code_live?>" data-name="<?=$value_group->nama_live?>" data-url="<?=$value_group->link_live?>" data-poster="<?=$value_group->poster_live?>" data-logo="<?=$value_group->logo_live?>" title="<?=$value_group->nama_live?>">
+                      <div class="nav-video">
+                        <figure class="nav-video-figure">
+                          <img src="<?=base_url()?>assets_tv/images/tv/<?=$value_group->logo_live?>" alt="mitraonetv"/>
                         </figure>
                       </div>
                     </a>
