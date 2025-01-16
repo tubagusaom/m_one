@@ -314,6 +314,7 @@ class Welcome_model extends MY_Model {
     $this->db->where('id >', '3');
 
     $query = $this->db->get();
+    shuffle ($query);
     return $query->result();
   }
 
