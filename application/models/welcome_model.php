@@ -2,8 +2,7 @@
 
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
-class Welcome_model extends MY_Model
-{
+class Welcome_model extends MY_Model {
 
   function __construct()
   {

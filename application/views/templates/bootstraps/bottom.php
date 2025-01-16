@@ -1,4 +1,3 @@
-
       
       <footer class="section footer-classic bg-terabytee">
         <div class="container">
@@ -111,11 +110,15 @@ $(document).on('click', '[data-action=copy]', function (){
         }
     });
 
-    var player1 = videojs("hls-example-11");
-    var player2 = videojs("hls-example-12");
-    var player3 = videojs("hls-example-13");
-    var player4 = videojs("hls-example-14");
-    var player5 = videojs("hls-example-15");
+    $('.lives_tv').each(function() {
+      var codeLive     = $(this).data('code');
+
+      videojs("hls-example-" + codeLive).pause();
+      videojs("hls-example-" + codeLive).removeClass('video-bg');
+
+      // alert(codeLive);
+          
+    });
 
     $("#energy-video").attr("style", "display:none");
     $("#mitra-video").attr("style", "display:none");
@@ -174,11 +177,6 @@ $(document).on('click', '[data-action=copy]', function (){
       });
 
     $('#corner-1').click(function(){
-        player1.pause();
-        player2.pause();
-        player3.pause();
-        player4.pause();
-        player5.pause();
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
@@ -205,7 +203,10 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
-          // alert(myAnchor);
+          videojs("hls-example-" + codeAnc).pause();
+          videojs("hls-example-" + codeAnc).removeClass('video-bg');
+
+          // alert(codeAnc);
           
         });
 
@@ -224,11 +225,6 @@ $(document).on('click', '[data-action=copy]', function (){
     });
 
     $('#corner-2').click(function(){
-        player1.pause();
-        player2.pause();
-        player3.pause();
-        player4.pause();
-        player5.pause();
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
@@ -255,6 +251,9 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
+          videojs("hls-example-" + codeAnc).pause();
+          videojs("hls-example-" + codeAnc).removeClass('video-bg');
+
           // alert(myAnchor);
           
         });
@@ -274,11 +273,6 @@ $(document).on('click', '[data-action=copy]', function (){
     });
 
     $('#corner-3').click(function(){
-        player1.pause();
-        player2.pause();
-        player3.pause();
-        player4.pause();
-        player5.pause();
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
@@ -305,6 +299,9 @@ $(document).on('click', '[data-action=copy]', function (){
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
 
+          videojs("hls-example-" + codeAnc).pause();
+          videojs("hls-example-" + codeAnc).removeClass('video-bg');
+
           // alert(myAnchor);
           
         });
@@ -326,13 +323,8 @@ $(document).on('click', '[data-action=copy]', function (){
 
     $('.click-video').click(function(){
 
-      player1.pause();
-      player2.pause();
-      player3.pause();
-      player4.pause();
-      player5.pause();
-
-      // var keys = $(this).data('key');
+      $(window).scrollTop($('#tabs-2').offset().top-300);
+      
       var keys = $(this).data('key');
       var names = $(this).data('name');
       var urls = $(this).data('url');
@@ -357,6 +349,9 @@ $(document).on('click', '[data-action=copy]', function (){
 
           $('#tabs-2-'+codeAnc).removeClass("active");
           $('#tabs-2-'+codeAnc).removeClass("active");
+
+          videojs("hls-example-" + codeAnc).pause();
+          videojs("hls-example-" + codeAnc).removeClass('video-bg');
 
           // alert(myAnchor);
           
@@ -386,8 +381,6 @@ $(document).on('click', '[data-action=copy]', function (){
         };
 
       });
-
-      $(window).scrollTop($('#tabs-2').offset().top-300);
 
     });
 
