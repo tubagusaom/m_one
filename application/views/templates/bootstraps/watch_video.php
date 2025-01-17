@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        <?=$video_detail->nama_video?> | <?= $aplikasi->nama_unit ?>
+    <?= $aplikasi->nama_unit ?> | <?=$video_detail->nama_video?>
     </title>
 
     <meta name="keywords" content="TV , TV ONLINE , roadcast. Embed Video" />
