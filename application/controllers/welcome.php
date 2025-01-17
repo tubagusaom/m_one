@@ -143,6 +143,8 @@
         $id_replace = str_replace('_','+', (str_replace("-","/",$id)."=="));
         $data['decryptedtext'] = $this->encrypt->decrypt_tb($id_replace);
         $dataid = $data['decryptedtext'];
+        
+        // var_dump($dataid); die();
 
         if ($dataid == false) {
           $this->load->view('templates/bootstraps/watch_notfound', $data);
@@ -154,8 +156,6 @@
 
           $this->load->view('templates/bootstraps/watch_video', $data);
         }
-        
-        // var_dump($dataid); die();
       }
 
       function privacy_policy(){

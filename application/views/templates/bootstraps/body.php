@@ -388,13 +388,16 @@
                           <?php
                             $text_link1 = $value_1->link_embed;
                             $segmen_link1 = explode("/", $text_link1);
-                            $link_embed1 = base_url('embed/'.$segmen_link1[4]);
+
+                            $encrypted_id1 = $this->encrypt->encrypt_tb($value_1->id);
+                            $link_embed1 = base_url('watch/'.($encrypted_id1).'/'.$segmen_link1[4]);
+                            // $link_embed1 = base_url('embed/'.$segmen_link1[4]);
 
                             // print_r($segmen_link[4]);
                           ?>
 
                           <div style="float:right!important;width:8%;text-align:right;"> 
-                            <a class="copy_text icon fa-share-square-o" data-action="copy" data-url="<?=$link_embed1?>" href="javascript:void(0)" style="color:#f47f1f;" title="share"></a>
+                            <a class="copy_text icon fa-share-square-o" data-action="copy1" data-url1="<?=$link_embed1?>" href="javascript:void(0)" style="color:#f47f1f;" title="share"></a>
                           </div>
                         </div>
                         
@@ -402,7 +405,7 @@
                     </div>
 
                     <?php $no1++;} ?>
-                  <input type="text" style="position: absolute; left: -1000px; top: -1000px" value="" id="share-url">
+                  <input type="text" style="position: absolute; left: -1000px; top: -1000px" value="" id="share-url1">
 
               </div>
             </div>
@@ -469,11 +472,14 @@
                     <?php
                       $text_link2 = $value_2->link_embed;
                       $segmen_link2 = explode("/", $text_link2);
-                      $link_embed2 = base_url('embed/'.$segmen_link2[4]);
+
+                      $encrypted_id2 = $this->encrypt->encrypt_tb($value_2->id);
+                      $link_embed2 = base_url('watch/'.($encrypted_id2).'/'.$segmen_link2[4]);
+                      // $link_embed2 = base_url('embed/'.$segmen_link2[4]);
                     ?>
 
                     <div style="float:right!important;width:8%;text-align:right;"> 
-                      <a class="copy_text icon fa-share-square-o" data-action="copy" data-url="<?=$link_embed2?>" href="javascript:void(0)" style="color:#f47f1f;" title="share"></a>
+                      <a class="copy_text icon fa-share-square-o" data-action="copy2" data-url2="<?=$link_embed2?>" href="javascript:void(0)" style="color:#f47f1f;" title="share"></a>
                     </div>
                   </div>
                   
@@ -481,7 +487,7 @@
               </div>
 
               <?php $no2++;} ?>
-              <input type="text" style="position: absolute; left: -1000px; top: -1000px" value="" id="share-url">
+              <input type="text" style="position: absolute; left: -1000px; top: -1000px" value="" id="share-url2">
 
               </div>
             </div>
@@ -548,11 +554,14 @@
                     <?php
                       $text_link3 = $value_3->link_embed;
                       $segmen_link3 = explode("/", $text_link3);
-                      $link_embed3 = base_url('embed/'.$segmen_link3[4]);
+
+                      $encrypted_id3 = $this->encrypt->encrypt_tb($value_3->id);
+                      $link_embed3 = base_url('watch/'.($encrypted_id3).'/'.$segmen_link3[4]);
+                      // $link_embed3 = base_url('embed/'.$segmen_link3[4]);
                     ?>
 
                     <div style="float:right!important;width:8%;text-align:right;"> 
-                      <a class="copy_text icon fa-share-square-o" data-action="copy" data-url="<?=$link_embed3?>" href="javascript:void(0)" style="color:#f47f1f;" title="share"></a>
+                      <a class="copy_text icon fa-share-square-o" data-action="copy3" data-url3="<?=$link_embed3?>" href="javascript:void(0)" style="color:#f47f1f;" title="share"></a>
                     </div>
                   </div>
                   
@@ -560,7 +569,7 @@
               </div>
 
               <?php $no3++;} ?>
-              <input type="text" style="position: absolute; left: -1000px; top: -1000px" value="" id="share-url">
+              <input type="text" style="position: absolute; left: -1000px; top: -1000px" value="" id="share-url3">
 
               </div>
             </div>

@@ -80,6 +80,107 @@ $(document).on('click', '[data-action=copy]', function (){
 
 });
 
+
+
+$(document).on('click', '[data-action=copy1]', function (){
+var dataUrl1 = $(this).data('url1');
+var copyText1 = $("#share-url1").attr("value", dataUrl1);
+copyText1.select();
+document.execCommand("copy");
+
+  Swal.fire({
+    type: 'success',
+    title: "Success",
+    text: 'link copied to clipboard',
+    timer: 2500,
+    showCancelButton: false,
+    showConfirmButton: false,
+    showClass: {
+      popup: `
+        animate__animated
+        animate__fadeInUp
+        animate__faster
+      `
+    },
+    hideClass: {
+      popup: `
+        animate__animated
+        animate__fadeOutDown
+        animate__faster
+      `
+    }
+  });
+
+});
+
+
+
+$(document).on('click', '[data-action=copy2]', function (){
+var dataUrl2 = $(this).data('url2');
+var copyText2 = $("#share-url2").attr("value", dataUrl2);
+copyText2.select();
+document.execCommand("copy");
+
+  Swal.fire({
+    type: 'success',
+    title: "Success",
+    text: 'link copied to clipboard',
+    timer: 2500,
+    showCancelButton: false,
+    showConfirmButton: false,
+    showClass: {
+      popup: `
+        animate__animated
+        animate__fadeInUp
+        animate__faster
+      `
+    },
+    hideClass: {
+      popup: `
+        animate__animated
+        animate__fadeOutDown
+        animate__faster
+      `
+    }
+  });
+
+});
+
+
+
+$(document).on('click', '[data-action=copy3]', function (){
+var dataUrl3 = $(this).data('url3');
+var copyText3 = $("#share-url3").attr("value", dataUrl3);
+copyText3.select();
+document.execCommand("copy");
+
+  Swal.fire({
+    type: 'success',
+    title: "Success",
+    text: 'link copied to clipboard',
+    timer: 2500,
+    showCancelButton: false,
+    showConfirmButton: false,
+    showClass: {
+      popup: `
+        animate__animated
+        animate__fadeInUp
+        animate__faster
+      `
+    },
+    hideClass: {
+      popup: `
+        animate__animated
+        animate__fadeOutDown
+        animate__faster
+      `
+    }
+  });
+
+});
+
+
+
 // $('.copy_text').each(function() {
 
 // });

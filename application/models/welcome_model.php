@@ -322,12 +322,20 @@ class Welcome_model extends MY_Model {
   {
     // var_dump($id_buyer); die();
 
+    $this->db->select(
+      '
+         a.*,
+         b.categories,
+         b.description
+       '
+    );
+
     $this->db->from('tv_video' . ' a');
     // $this->db->join(kode_tbl().'product b','a.id_product=b.id');
     $this->db->join('tv_categories b', 'a.id_categorie=b.id');
 
 
-    $this->db->where('a.id_categorie', 1);
+    $this->db->where('a.id_categorie', 2);
     $this->db->where('a.id >', '3');
     $query = $this->db->get();
     return $query->result();
@@ -336,6 +344,14 @@ class Welcome_model extends MY_Model {
   function video_mitra()
   {
     // var_dump($id_buyer); die();
+
+    $this->db->select(
+      '
+         a.*,
+         b.categories,
+         b.description
+       '
+    );
 
     $this->db->from('tv_video' . ' a');
     // $this->db->join(kode_tbl().'product b','a.id_product=b.id');
@@ -351,6 +367,14 @@ class Welcome_model extends MY_Model {
   function video_umkm()
   {
     // var_dump($id_buyer); die();
+
+    $this->db->select(
+      '
+         a.*,
+         b.categories,
+         b.description
+       '
+    );
 
     $this->db->from('tv_video' . ' a');
     // $this->db->join(kode_tbl().'product b','a.id_product=b.id');
