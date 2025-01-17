@@ -10,7 +10,7 @@
     </title>
 
     <meta name="keywords" content="TV , TV ONLINE , roadcast. Embed Video" />
-    <meta name="description" content="Play Embed Video">
+    <meta name="description" content="Video Can't Be Found">
     <meta name="author" content="terabytee.my.id">
 
     <!-- Favicon -->
