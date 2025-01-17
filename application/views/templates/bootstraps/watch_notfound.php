@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-    <?= $aplikasi->nama_unit ?> - Video Not Found
+    <?= $aplikasi->nama_unit ?> | Video Not Found
     </title>
 
     <meta name="keywords" content="TV , TV ONLINE , roadcast. Embed Video" />
