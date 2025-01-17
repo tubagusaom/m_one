@@ -190,7 +190,7 @@
             <div class="row-live">
 
               <div class="text-left">
-                <h6 class="text-gray-600" style="font-weight: bold;color: #f47f1f;">Public</h6>
+                <h6 class="text-gray-600" style="font-weight: bold;color: #f47f1f;">Lokal</h6>
               </div>
 
               <?php
@@ -219,8 +219,8 @@
 
             <div class="row-live">
 
-              <div class="text-left">
-                <h6 class="text-gray-600" style="font-weight: bold;color: #f47f1f;">Group</h6>
+              <div class="text-left" style="padding-top: 20px;">
+                <h6 class="text-gray-600" style="font-weight: bold;color: #f47f1f;">International</h6>
               </div>
 
               <?php
@@ -305,13 +305,10 @@
                         <?php
                           $text_link = $value_videos->link_embed;
                           $segmen_link = explode("/", $text_link);
-
-                          // $keyx = $key_terabytee;
-                          // $encrypted_id = bin2hex(openssl_encrypt($value_videos->id,'AES-128-CBC', $key));
-                          // $encrypted_id = encryptx($plaintext, $keyx);
+                          $encrypted_id = $this->encrypt->encrypt_tb($value_videos->id);
                           
-                          // $link_embed = base_url('watch/'.($encrypted_id).'/'.$segmen_link[4]);
-                          $link_embed = base_url('watch/'.$segmen_link[4]);
+                          $link_embed = base_url('watch/'.($encrypted_id).'/'.$segmen_link[4]);
+                          // $link_embed = base_url('watch/'.$segmen_link[4]);
 
                           // print_r($segmen_link[4]);
                         ?>

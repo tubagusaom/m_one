@@ -461,6 +461,51 @@ class CI_Encrypt {
 			return sha1($str);
 		}
 	}
+
+
+
+
+
+	
+	function key_tb() {
+		$CI =& get_instance();
+		$key = $CI->config->item('encryption_key');
+
+		return ($key);
+	}
+
+	function encrypt_tb($string) {
+		$key = $this->key_tb();
+        $cipher = "AES-256-CBC";
+        $ivlen = openssl_cipher_iv_length($cipher);
+        $iv = openssl_random_pseudo_bytes($ivlen);
+        $ciphertext = openssl_encrypt($string, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+        $hmac = hash_hmac('sha256', $ciphertext, $key, true);
+		$base_code = base64_encode($iv . $hmac . $ciphertext);
+		$code_replace = str_replace('==','', (str_replace('+','_',(str_replace("/","-",$base_code)))));
+        // return base64_encode($iv . $hmac . $ciphertext);
+        return ($code_replace);
+    }
+
+	function decrypt_tb($string) {
+		$key = $this->key_tb();
+		$cipher = "AES-256-CBC";
+		$c = base64_decode($string);
+		$ivlen = openssl_cipher_iv_length($cipher);
+		$iv = substr($c, 0, $ivlen);
+		$hmac = substr($c, $ivlen, $sha2len = 32);
+		$ciphertext = substr($c, $ivlen + $sha2len);
+		$original_plaintext = openssl_decrypt($ciphertext, $cipher, $key, OPENSSL_RAW_DATA, $iv);
+		$calcmac = hash_hmac('sha256', $ciphertext, $key, true);
+		if (hash_equals($hmac, $calcmac)) {
+			return $original_plaintext;
+		}
+		return false;
+
+		// var_dump($key); die();
+	}
+
+
 }
 // END CI_Encrypt class
 /* End of file Encrypt.php */

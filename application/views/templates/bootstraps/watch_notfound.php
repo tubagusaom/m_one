@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        <?=$video_detail->nama_video?> | <?= $aplikasi->nama_unit ?>
+    Video Not Found - <?= $aplikasi->nama_unit ?>
     </title>
 
     <meta name="keywords" content="TV , TV ONLINE , roadcast. Embed Video" />
-    <meta name="description" content="<?=$video_detail->desc_video?>">
+    <meta name="description" content="Play Embed Video">
     <meta name="author" content="terabytee.my.id">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?=$video_detail->poster_video?>" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="<?=$video_detail->poster_video?>">
-    <link rel="icon" href="<?=$video_detail->poster_video?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url() ?>assets_tv/images/logo_mitraone_tv.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<?= base_url() ?>assets_tv/images/logo_mitraone_tv.png">
+    <link rel="icon" href="<?= base_url() ?>assets_tv/images/logo_mitraone_tv.png" type="image/x-icon">
 
     <style>
         .videoContainer {
@@ -57,7 +57,7 @@
         <!-- <iframe id="videoembed" class="videoContainer__video" width="100%" height="100%" src="" allow="autoplay" frameborder="0" allowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts">
         </iframe> -->
 
-        <div id="player" class="videoContainer__video"></div>
+        <h1 style='text-align:center;font-family:calibri;color:#f47f1f'>Video Can't Be Found</h1>
         
 
         <?php

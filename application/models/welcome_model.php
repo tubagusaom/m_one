@@ -396,9 +396,9 @@ class Welcome_model extends MY_Model {
     $this->db->order_by('id', 'DESC');
     
     // $this->db->limit(10);
-    $this->db->where('id', md5($id));
+    $this->db->where('id', $id);
 
-    $query = $this->db->get()->result();
+    $query = $this->db->get()->row();
     shuffle ($query);
     return $query; 
   }

@@ -94,9 +94,6 @@
 
           $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
-          $data['key_terabytee'] = $this->key_terabytee();
-
-
           $data['banner'] = $this->welcome_model->banner();
           $data['live_public_tv'] = $this->welcome_model->live_public_tv();
           $data['live_group_tv'] = $this->welcome_model->live_group_tv();
@@ -108,7 +105,7 @@
           $data['video_mitra'] = $this->welcome_model->video_mitra();
           $data['video_umkm'] = $this->welcome_model->video_umkm();
 
-          // var_dump(($data['live_tv'])); die();
+          // var_dump(($data['key_terabytee'])); die();
 
           $this->load->view('templates/bootstraps/header', $data);
           $this->load->view('templates/bootstraps/body', $data);
@@ -157,59 +154,28 @@
 
       function privacy_policy(){
         $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
-
         $this->load->view('templates/bootstraps/privacy_policy', $data);
       }
 
-      function watch_video($id){
-      // function watch_video($id,$code){
+      function watch_video($id,$code){
         $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
+        $id_replace = str_replace('_','+', (str_replace("-","/",$id)."=="));
+        $data['decryptedtext'] = $this->encrypt->decrypt_tb($id_replace);
+        $dataid = $data['decryptedtext'];
+
+        if ($dataid == false) {
+          $this->load->view('templates/bootstraps/watch_notfound', $data);
+        }else{
+          $data['id_embed'] = $code;
+          $data['video_detail'] = $this->welcome_model->video_watch($dataid);
+
+          // var_dump($data['video_watch']); die();
+
+          $this->load->view('templates/bootstraps/watch_video', $data);
+        }
         
-        $data['id_embed'] = $id;
-
-        $key = $this->key_terabytee();
-        // $text=(base64_decode($id));
-        // $encrypted = bin2hex(openssl_encrypt($text,'AES-128-CBC', $key));
-        // $decrypted=openssl_decrypt(hex2bin($id),'AES-128-CBC',$key);
-
-        $plaintext = '15';
-        // $hashedpw = hash('sha256', $plaintext);
-        // $hashx = hash_hmac("sha256", utf8_encode($plaintext), utf8_encode($key), false);
-
-        $encryptedText = $this->encryptx($plaintext, $key);
-        $decryptedText = $this->decryptx($encryptedText, $key);
-        // $padxx = bin2asc($pad);
-
-
-
-        // var_dump(($decryptedText)); die();
-
-        $this->load->view('templates/bootstraps/watch_video', $data);
-      }
-
-      function encryptx($string, $key) {
-          $cipher = "AES-256-CBC";
-          $ivlen = openssl_cipher_iv_length($cipher);
-          $iv = openssl_random_pseudo_bytes($ivlen);
-          $ciphertext = openssl_encrypt($string, $cipher, $key, OPENSSL_RAW_DATA, $iv);
-          $hmac = hash_hmac('sha256', $ciphertext, $key, true);
-          return base64_encode($iv . $hmac . $ciphertext);
-      }
-
-      function decryptx($string, $key) {
-          $cipher = "AES-256-CBC";
-          $c = base64_decode($string);
-          $ivlen = openssl_cipher_iv_length($cipher);
-          $iv = substr($c, 0, $ivlen);
-          $hmac = substr($c, $ivlen, $sha2len = 32);
-          $ciphertext = substr($c, $ivlen + $sha2len);
-          $original_plaintext = openssl_decrypt($ciphertext, $cipher, $key, OPENSSL_RAW_DATA, $iv);
-          $calcmac = hash_hmac('sha256', $ciphertext, $key, true);
-          if (hash_equals($hmac, $calcmac)) {
-              return $original_plaintext;
-          }
-          return false;
+        // var_dump($dataid); die();
       }
 
       // public function tutorial($id=false) {
