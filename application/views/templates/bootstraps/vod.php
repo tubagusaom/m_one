@@ -91,8 +91,10 @@
                         <?php
                           $text_link = $value_videos->link_embed;
                           $segmen_link = explode("/", $text_link);
-                          
-                          $link_embed = base_url('watch/'.$segmen_link[4]);
+
+                          $encrypted_id = $this->encrypt->encrypt_tb($value_videos->id);
+                          $link_embed = base_url('watch/'.($encrypted_id).'/'.$segmen_link[4]);
+                          // $link_embed = base_url('watch/'.$segmen_link[4]);
 
                           // print_r($segmen_link[4]);
                         ?>

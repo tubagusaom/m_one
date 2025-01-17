@@ -137,26 +137,6 @@
         }
       }
 
-      function admin() {
-
-        if (!$this->auth->is_logged_in()) {
-          $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
-
-          // $this->load->view('templates/login/test', $data);
-          $this->load->view('templates/login/header', $data);
-          $this->load->view('templates/login/body', $data);
-          $this->load->view('templates/login/footer', $data);
-        } else {
-          redirect(base_url() . 'home');
-        }
-
-      }
-
-      function privacy_policy(){
-        $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
-        $this->load->view('templates/bootstraps/privacy_policy', $data);
-      }
-
       function watch_video($id,$code){
         $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
@@ -176,6 +156,26 @@
         }
         
         // var_dump($dataid); die();
+      }
+
+      function privacy_policy(){
+        $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
+        $this->load->view('templates/bootstraps/privacy_policy', $data);
+      }
+
+      function admin() {
+
+        if (!$this->auth->is_logged_in()) {
+          $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
+
+          // $this->load->view('templates/login/test', $data);
+          $this->load->view('templates/login/header', $data);
+          $this->load->view('templates/login/body', $data);
+          $this->load->view('templates/login/footer', $data);
+        } else {
+          redirect(base_url() . 'home');
+        }
+
       }
 
       // public function tutorial($id=false) {
