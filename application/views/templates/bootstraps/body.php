@@ -184,6 +184,30 @@
           <h6 class="text-gray-600">Live TV</h6>
         </div>
       </div>
+
+      <style>
+        /* width */
+        #tab-live::-webkit-scrollbar {
+          width: 3px!important;
+        }
+
+        /* Track */
+        #tab-live::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 5px #204198!important; 
+          border-radius: 10px!important;
+        }
+        
+        /* Handle */
+        #tab-live::-webkit-scrollbar-thumb {
+          background: rgb(244, 127, 32)!important; 
+          border-radius: 10px!important;
+        }
+
+        /* Handle on hover */
+        #tab-live::-webkit-scrollbar-thumb:hover {
+          background: rgb(244, 127, 32)!important; 
+        }
+      </style>
       
       <!-- <section class="section" data-lightgallery="group"> -->
         <div id="tab-live" class="tab-column">
