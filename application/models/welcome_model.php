@@ -311,7 +311,7 @@ class Welcome_model extends MY_Model {
     $this->db->order_by('id', 'DESC');
     
     // $this->db->limit(10);
-    $this->db->where('id >', '3');
+    $this->db->where('id >', '4');
 
     $query = $this->db->get()->result();
     // shuffle ($query);
@@ -324,10 +324,10 @@ class Welcome_model extends MY_Model {
 
     $this->db->select(
       '
-         a.*,
-         b.categories,
-         b.description
-       '
+        a.*,
+        b.categories,
+        b.description
+      '
     );
 
     $this->db->from('tv_video' . ' a');
@@ -347,10 +347,10 @@ class Welcome_model extends MY_Model {
 
     $this->db->select(
       '
-         a.*,
-         b.categories,
-         b.description
-       '
+        a.*,
+        b.categories,
+        b.description
+      '
     );
 
     $this->db->from('tv_video' . ' a');
@@ -370,10 +370,10 @@ class Welcome_model extends MY_Model {
 
     $this->db->select(
       '
-         a.*,
-         b.categories,
-         b.description
-       '
+        a.*,
+        b.categories,
+        b.description
+      '
     );
 
     $this->db->from('tv_video' . ' a');
