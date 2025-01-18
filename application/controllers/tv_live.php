@@ -196,7 +196,7 @@ class Tv_live extends MY_Controller {
                     }
                     else{
                         $data['logo_live'] = $this->input->post('foto_hidden');
-                        $data['logo_link'] = base_url() . "assets_tv/images/tv/" . $this->input->post('foto_hidden');
+                        $data['logo_link'] = base_url() . "assets_tv/images/tv/$this->input->post('foto_hidden')";
                     }
 
                     if ($this->tv_live_model->update(intval($id), $data) !== false) {
