@@ -193,7 +193,7 @@
 
         /* Track */
         #tab-live::-webkit-scrollbar-track {
-          box-shadow: inset 0 0 5px rgba(34, 45, 79, .4)!important; 
+          box-shadow: inset 0 0 5px rgba(34, 45, 79, .2)!important; 
           border-radius: 10px!important;
         }
         
