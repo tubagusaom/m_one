@@ -1,6 +1,6 @@
 <div class="form-panel" style="margin-left: 20px;margin-top: 20px; margin-bottom: 30px;">
     <div class="x-panel-bwrap">
-        <form id="myform">
+    <form id="myform" enctype="multipart/form-data" action="<?php echo $url ?>">
             <table class="table-data">
                 <tr>
                     <td colspan="2" style="width: 150px;">
@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td style="width: 150px;">Gambar : </td>
+                    <td style="width: 150px;">Logo : </td>
                     <td>
                         <input id="fileToUpload" class="easyui-filebox" name="fileToUpload" style="width: 250px;"  data-options="buttonText: 'Pilih Logo'"  />
 
