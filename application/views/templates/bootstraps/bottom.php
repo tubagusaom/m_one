@@ -385,7 +385,7 @@ document.execCommand("copy");
 
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
-        $("#frame-1").attr("src","https://www.youtube.com/embed/xI0N1WUk840?autoplay=1&mute=1");
+        $("#frame-1").attr("src","https://www.youtube.com/embed/xI0N1WUk840?autoplay=1&playlist=xI0N1WUk840&loop=1&rel=0&showinfo=0&mute=0");
         $("#frame-2").attr("src","");
         $("#frame-3").attr("src","");
 
@@ -458,7 +458,7 @@ document.execCommand("copy");
         $(window).scrollTop($('#tabs-2').offset().top-300);
         
         $("#frame-1").attr("src","");
-        $("#frame-2").attr("src","https://www.youtube.com/embed/nT6XENs5cA8?autoplay=1&mute=1");
+        $("#frame-2").attr("src","https://www.youtube.com/embed/nT6XENs5cA8?autoplay=1&playlist=nT6XENs5cA8&loop=1&rel=0&showinfo=0&mute=0");
         $("#frame-3").attr("src","");
 
         $('.v-video').each(function() {
@@ -532,7 +532,7 @@ document.execCommand("copy");
         
         $("#frame-1").attr("src","");
         $("#frame-2").attr("src","");
-        $("#frame-3").attr("src","https://www.youtube.com/embed/xT-2XUfwX7E?autoplay=1&mute=1");
+        $("#frame-3").attr("src","https://www.youtube.com/embed/xT-2XUfwX7E?autoplay=1&playlist=xT-2XUfwX7E&loop=1&rel=0&showinfo=0&mute=0");
 
         $('.v-video').each(function() {
           var codeVideos3 = $(this).data('cvideo');
@@ -610,7 +610,9 @@ document.execCommand("copy");
       var embeds = $(this).data('embed');
       var posters = $(this).data('poster');
 
-      $('#frame-' + keys).attr("src",embeds + "?autoplay=1&mute=0");
+      var embedarr=embeds.split('/');
+
+      $('#frame-' + keys).attr("src",embeds + "?autoplay=1&playlist=" + embedarr[4] + "&loop=1&rel=0&showinfo=0&mute=0");
 
       $("#frame-1").attr("src","");
       $("#frame-2").attr("src","");

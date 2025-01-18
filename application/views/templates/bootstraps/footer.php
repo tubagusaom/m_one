@@ -80,9 +80,11 @@
         var embeds = $(this).data('embed');
         var posters = $(this).data('poster');
 
-        // alert(embeds);
+        var embedarr=embeds.split('/');
 
-        $('#frame-' + keys).attr("src",embeds + "?autoplay=1&mute=0");
+        // alert(embedarr[4]);
+
+        $('#frame-' + keys).attr("src",embeds + "?autoplay=1&playlist=" + embedarr[4] + "&loop=1&rel=0&showinfo=0&mute=0");
 
         $('#tabs-2-' + keys).addClass("active");
         $('#tabs-2-' + keys).addClass("show");
