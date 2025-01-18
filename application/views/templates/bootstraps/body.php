@@ -193,19 +193,19 @@
 
         /* Track */
         #tab-live::-webkit-scrollbar-track {
-          box-shadow: inset 0 0 5px #204198!important; 
+          box-shadow: inset 0 0 5px rgba(34, 45, 79, .6)!important; 
           border-radius: 10px!important;
         }
         
         /* Handle */
         #tab-live::-webkit-scrollbar-thumb {
-          background: rgb(244, 127, 32)!important; 
+          background: rgba(244, 127, 32, .8)!important; 
           border-radius: 10px!important;
         }
 
         /* Handle on hover */
         #tab-live::-webkit-scrollbar-thumb:hover {
-          background: rgb(244, 127, 32)!important; 
+          background: rgba(244, 127, 32, .8)!important; 
         }
       </style>
       
