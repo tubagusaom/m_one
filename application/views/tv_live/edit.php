@@ -35,8 +35,10 @@
                     <td>
                         <input id="fileToUpload" class="easyui-filebox" name="fileToUpload" style="width: 250px;"  data-options="buttonText: 'Pilih Logo'"  />
 
-                        <input type="hidden" name="logo_live" id="logo_live" value="<?=$data->logo_live?>" />
-                        <input type="hidden" name="logo_link" id="logo_link" value="<?=$data->logo_link?>" />
+                        <input type="hidden" name="foto_hidden" id="foto_hidden" value="<?php echo $data->logo_live ?>" />
+                        <!-- <input type="hidden" name="logo_live" id="logo_live" value="<?=$data->logo_live?>" />
+                        <input type="hidden" name="logo_link" id="logo_link" value="<?=$data->logo_link?>" /> -->
+
                         <input type="hidden" name="poster_live" style="width: 250px;" value="<?php echo $data->poster_live ?>">
                 </tr>
 

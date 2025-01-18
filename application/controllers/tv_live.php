@@ -194,9 +194,10 @@ class Tv_live extends MY_Controller {
                             exit();
                         }
                     }
-                    // else{
-                    //     $data['logo_live'] = $this->input->post('foto_hidden');
-                    // }
+                    else{
+                        $data['logo_live'] = $this->input->post('foto_hidden');
+                        $data['logo_link'] = base_url() . "assets_tv/images/tv/" . $this->input->post('foto_hidden');
+                    }
 
                     if ($this->tv_live_model->update(intval($id), $data) !== false) {
                         echo json_encode(array('msgType' => 'success', 'msgValue' => 'Data berhasil diubah !'));
