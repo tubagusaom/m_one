@@ -199,13 +199,13 @@
         
         /* Handle */
         #tab-live::-webkit-scrollbar-thumb {
-          background: rgba(244, 127, 32, .4)!important; 
+          background: rgba(244, 127, 32, .3)!important; 
           border-radius: 10px!important;
         }
 
         /* Handle on hover */
         #tab-live::-webkit-scrollbar-thumb:hover {
-          background: rgba(244, 127, 32, .4)!important; 
+          background: rgba(244, 127, 32, .3)!important; 
         }
       </style>
       
