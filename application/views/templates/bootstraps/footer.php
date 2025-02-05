@@ -70,8 +70,9 @@
     });
 
 
-
+    
     $('.click-video').click(function(){
+        
 
         var keys = $(this).data('key');
         var keys = $(this).data('key');
@@ -84,7 +85,7 @@
 
         // alert(embedarr[4]);
 
-        $('#frame-' + keys).attr("src",embeds + "?autoplay=1&playlist=" + embedarr[4] + "&loop=1&rel=0&showinfo=0&mute=0");
+        $('#frame-' + keys).attr("src",embeds + "?autoplay=1&playlist=" + embedarr[4] + "&loop=1&mute=0&controls=0&rel=0&showinfo=0&disablekb=1&egm=1)");
 
         $('#tabs-2-' + keys).addClass("active");
         $('#tabs-2-' + keys).addClass("show");

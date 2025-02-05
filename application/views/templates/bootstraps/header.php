@@ -140,7 +140,7 @@
                             <a class="rd-nav-link" href="<?=base_url('vod')?>"><i class="icon fa-play-circle"></i> VOD</a>
                         </li>
                         <li class="rd-nav-item">
-                            <a class="rd-nav-link" href="https://play.google.com/store/apps/" target="_blank"><i class="icon fa-android"></i> APP</a>
+                            <a class="rd-nav-link" href="https://play.google.com/store/apps/details?id=com.mitraonetv.app" target="_blank"><i class="icon fa-android"></i> APP</a>
                         </li>
                     </ul>
                 </div>
